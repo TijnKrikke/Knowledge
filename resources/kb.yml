@@ -1,7 +1,23 @@
 
   questions:
     - text: "Can the game incorporate mature elements such as violence/drugs?"
-      condition: null
+      condition: "Mature?"
+      options:
+        - text: "Yes, but not necessary"
+          results:
+            - type: "add_aspect"
+              value: "Mature~"
+        - text: "Yes, this is preferred"
+          results:
+            - type: "add_aspect"
+              value: "Mature+"
+        - text: "No, there should not be mature elements"
+          results:
+            - type: "add_aspect"
+              value: "Mature-"
+
+    - text: "This is a test question, hopefully you do not see this (outside of kb.yml) for now"
+      condition: "Mature?"
       options:
         - text: "Yes, but not necessary"
           results:

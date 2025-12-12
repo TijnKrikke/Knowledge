@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-@dataclass
+@dataclass(eq=True, frozen=True)
 class Aspect:
     name: str
 
@@ -11,11 +11,11 @@ class Game:
     age: tuple[int, int]
     players: tuple[int, int]
     duration: int
-    aspects: list[Aspect]
+    aspects: set[Aspect]
 
 @dataclass
 class Condition:
-    todo: str
+    todo: str #TODO
 
 @dataclass
 class Result:
@@ -39,8 +39,10 @@ class KB:
     games: list[Game]
 
 @dataclass
-class Fact:
-    aspects: list[Aspect]
+class Facts:
+    aspects_pos: set[Aspect]
+    aspects_neg: set[Aspect]
+    aspects_idc: set[Aspect]
     age: tuple[int, int]
     players: tuple[int, int]
     duration: int

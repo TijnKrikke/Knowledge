@@ -2,6 +2,7 @@ import yaml
 
 from src.model import KB
 
+
 with open("../resources/kb.yml") as stream:
     try:
         ymlstring = yaml.safe_load(stream)

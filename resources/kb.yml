@@ -1,49 +1,85 @@
-questions:
-  - q: "Can the game incorporate mature elements such as violence/drugs?"
-    if: Mature?
-    options:
-      - choice: "Yes, but not necessary"
-        result: Mature~
-      - choice: "Yes, this is preferred"
-        result: Mature+
-      - choice: "No, there should not be mature elements"
-        result: Mature-
-  - q: "What is the target age?"
-    options:
-      - choice: "5-7"
-        result: [Age_5-7, Mature-]
-      - choice: "8-11"
-        result: [Age_7-11, Mature-]
-      - choice: "12-16"
-        result: [Age_12-16]
-      - choice: "17-22"
-        result: [Age_17-22]
-  - q: "What is the target age?"
-    options:
-      - choice: Fill in two values
-        result: [Age filled in value]
-  - q: "Complexity?"
-    if: [Complex-Actions? AND Complex-Rules?]
-    options:
-      - choice: Fill in two values
-        result: [Age filled in value]
-  - q: "Can there be complex actions?"
-    options:
-      - choice: Fill in two values
-        result: [Age filled in value]
 
-games:
-  - name: "Risk"
-    description: "...."
-    age: 7-99
-    players: 2-6
-    duration: 120
-    aspects: [Strategy]
-  - name: "Cards against Humanity"
-    description: "...."
-    url: ".."
-    image: "..."
-    age: 16-35
-    duration: 60
-    aspects: [Mature, Party]
+  questions:
+    - text: "Can the game incorporate mature elements such as violence/drugs?"
+      condition: null
+      options:
+        - text: "Yes, but not necessary"
+          results:
+            - type: "add_aspect"
+              value: "Mature~"
+        - text: "Yes, this is preferred"
+          results:
+            - type: "add_aspect"
+              value: "Mature+"
+        - text: "No, there should not be mature elements"
+          results:
+            - type: "add_aspect"
+              value: "Mature-"
+
+    - text: "What is the target age?"
+      condition: null
+      options:
+        - text: "5-7"
+          results:
+            - type: "set_age_range"
+              value: "5-7"
+            - type: "add_aspect"
+              value: "Mature-"
+        - text: "8-11"
+          results:
+            - type: "set_age_range"
+              value: "8-11"
+            - type: "add_aspect"
+              value: "Mature-"
+        - text: "12-16"
+          results:
+            - type: "set_age_range"
+              value: "12-16"
+        - text: "17-22"
+          results:
+            - type: "set_age_range"
+              value: "17-22"
+
+    - text: "Complexity?"
+      condition: null
+      options:
+        - text: "Simple"
+          results:
+            - type: "add_aspect"
+              value: "Complex-"
+        - text: "Moderate"
+          results:
+            - type: "add_aspect"
+              value: "Complex~"
+        - text: "Complex"
+          results:
+            - type: "add_aspect"
+              value: "Complex+"
+
+    - text: "Can there be complex actions?"
+      condition: null
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Complex-Actions"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "No-Complex-Actions"
+
+  games:
+    - name: "Risk"
+      description: "Area-control strategy game"
+      age: [7, 99]
+      players: [2, 6]
+      duration: 120
+      aspects: ["Strategy"]
+
+    - name: "Cards Against Humanity"
+      description: "Adult party game"
+      age: [16, 35]
+      players: [4, 20]
+      duration: 60
+      aspects: ["Mature", "Party"]
 

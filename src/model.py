@@ -37,3 +37,10 @@ class Question:
 class KB:
     questions: list[Question]
     games: list[Game]
+
+@dataclass
+class Fact:
+    aspects: list[Aspect]
+    age: tuple[int, int]
+    players: tuple[int, int]
+    duration: int

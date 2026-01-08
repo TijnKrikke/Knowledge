@@ -85,21 +85,21 @@
               value: "No-Complex-Actions"
 
   games:
-    - name: "Risk"
-      description: "Area-control strategy game"
-      # age: [7, 99]
-      # players: [2, 6]
-      # duration: 120
-      aspects: ["Strategy"]
+    # - name: "Risk"
+    #   description: "Area-control strategy game"
+    #   # age: [7, 99]
+    #   # players: [2, 6]
+    #   # duration: 120
+    #   aspects: ["Strategy"]
 
-    - name: "Cards Against Humanity"
-      description: "Adult party game"
-      # age: [16, 35]
-      # players: [4, 20]
-      # duration: 60
-      aspects: ["Mature", "Party"]
+    # - name: "Cards Against Humanity"
+    #   description: "Adult party game"
+    #   # age: [16, 35]
+    #   # players: [4, 20]
+    #   # duration: 60
+    #   aspects: ["Mature", "Party"]
 
-    - name: "7 wonders	Eurogame"
+    - name: "7 wonders Eurogame"
       description: ""
       aspects: ["Dynamic", "Interactive"]
 
@@ -249,7 +249,7 @@
 
     - name: "Go"
       description: ""
-      aspects: ["Competitive", "Classic", "Strategy", "Deterministic"]
+      aspects: ["Competitive", "Classic", "Strategy", "Easy", "Deterministic"]
 
     - name: "Grunn / Frysk"
       description: ""
@@ -267,7 +267,7 @@
       description: ""
       aspects: ["Eurogame", "Resource", "Complex"]
 
-    - name: " Jenga"
+    - name: "Jenga"
       description: ""
       aspects: ["Risk taking", "Family", "Physical", "Easy"]
    
@@ -291,7 +291,7 @@
       description: ""
       aspects: ["Family", "Classic", "Easy", "Luck"]
 
-    - name: " Magic the Gathering"
+    - name: "Magic the Gathering"
       description: ""
       aspects: ["Personal Touch", "Collector", "Competitive", "Travel", "Complex"]
 
@@ -305,7 +305,7 @@
 
     - name: "Metropolis"
       description: ""
-      aspects: ["Eurogame", "Travel", "Easy "]
+      aspects: ["Eurogame", "Travel", "Easy"]
 
     - name: "Monopoly"
       description: ""
@@ -411,7 +411,7 @@
       description: ""
       aspects: ["Eurogame", "Dynamic", "Strategy", "Interactive", "Resource", "Easy", "Colour"]
 
-    - name: " Star Realms"
+    - name: "Star Realms"
       description: ""
       aspects: ["Competitive", "Dynamic", "Deck Builder"]
 

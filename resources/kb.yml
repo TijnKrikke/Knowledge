@@ -87,15 +87,402 @@
   games:
     - name: "Risk"
       description: "Area-control strategy game"
-      age: [7, 99]
-      players: [2, 6]
-      duration: 120
+      # age: [7, 99]
+      # players: [2, 6]
+      # duration: 120
       aspects: ["Strategy"]
 
     - name: "Cards Against Humanity"
       description: "Adult party game"
-      age: [16, 35]
-      players: [4, 20]
-      duration: 60
+      # age: [16, 35]
+      # players: [4, 20]
+      # duration: 60
       aspects: ["Mature", "Party"]
 
+    - name: "7 wonders	Eurogame"
+      description: ""
+      aspects: ["Dynamic", "Interactive"]
+
+    - name: "Academy"
+      description: ""
+      aspects: ["Deck Builder", "Collector", "Complex", "Personal Touch"]
+    
+    - name: "Agricola"
+      description: ""
+      aspects: ["Eurogame", "Dynamic", "Interactive", "Complex", "Resource", "Strategy"]
+
+    - name: "Alchemists(2014)"
+      description: ""
+      aspects: ["Eurogame", "Puzzle", "App"]
+
+    - name: "Ascension"
+      description: ""
+      aspects: ["Dynamic", "Deck Builder", "Eurogame"]
+
+    - name: "Azul"
+      description: ""
+      aspects: ["Cozy", "Eurogame", "Puzzle", "Dynamic", "Interactive"]
+
+    - name: "Beer & Bread"
+      description: ""
+      aspects: ["Eurogame", "Resource"]
+
+    - name: "Beer pong"
+      description: ""
+      aspects: ["Party", "Mature", "Reaction", "Easy", "Physical"]
+
+    - name: "Black Stories"
+      description: ""
+      aspects: ["Party", "Social", "Cooperative", "Vibes", "Mature", "Travel", "Easy", "Visually impaired", "Audio"]
+
+    - name: "Blood on the Clock Tower"
+      description: ""
+      aspects: ["Party", "Social", "Storytelling", "Deduction", "Asymmetric", "Complex", "Visually impaired"]
+
+    - name: "Calico"
+      description: ""
+      aspects: ["Cozy", "Eurogame", "Puzzle"]
+
+    - name: "Call of Cthulu"
+      description: ""
+      aspects: ["Personal Touch", "Social", "Cooperative", "Storytelling", "Thematic", "Mature", "Whimsy", "Visually impaired"]
+
+    - name: "Captain Sonar"
+      description: ""
+      aspects: ["Competitive", "Cooperative", "Reaction", "Audio"]  
+
+    - name: "Cards Against Humanity"
+      description: ""
+      aspects: ["Social", "Vibes", "Party", "Mature", "Easy", "Whimsy"]
+
+    - name: "CATAN"
+      description: ""
+      aspects: ["Family", "Social", "Classic", "Trading", "Resource"]
+
+    - name: "Chess"
+      description: ""
+      aspects: ["Competitive", "Classic", "Strategy", "Deterministic"]
+
+    - name: "Citadels"
+      description: ""
+      aspects: ["Dynamic", "Risk taking", "Eurogame", "Competitive", "Interactive"]
+
+    - name: "Codenames"
+      description: ""
+      aspects: ["Social", "Vibes", "Cooperative", "Easy"]
+
+    - name: "Coup"
+      description: ""
+      aspects: ["Risk taking", "Competitive", "Bluffing", "Easy", "Travel"]
+
+    - name: "Cubirds"
+      description: ""
+      aspects: ["Cozy", "Family"]
+
+    - name: "Cyclades"
+      description: ""
+      aspects: ["Competitive", "Complex", "Strategy"]
+
+    - name: "Deep Rock Galactic"
+      description: ""
+      aspects: ["Cooperative", "Collector", "Dynamic", "Reactive", "Solo"]
+
+    - name: "Diplomacy"
+      description: ""
+      aspects: ["Competitive", "Social", "Promises", "Strategy"]
+
+    - name: "Distilled"
+      description: ""
+      aspects: ["Eurogame", "Thematic", "Resource"]
+
+    - name: "Dixit"
+      description: ""
+      aspects: ["Social", "Family", "Cozy", "Vibes", "Storytelling", "Easy"]
+
+    - name: "Dominion"
+      description: ""
+      aspects: ["Personal Touch", "Dynamic", "Eurogame", "Deck Builder", "Classic"]
+
+    - name: "Dorfromantik"
+      description: ""
+      aspects: ["Cozy", "Solo", "Thematic"]
+
+    - name: "Dungeons and Dragons"
+      description: ""
+      aspects: ["Personal Touch", "Social", "Cooperative", "Classic", "Storytelling", "Resource", "Visually impaired"]
+
+    - name: "Echo"
+      description: ""
+      aspects: ["Competitive", "Collector", "Travel", "Easy"]
+
+    - name: "El Grande"
+      description: ""
+      aspects: ["Competitive", "Strategy", "Complex"]
+
+    - name: "Eldritch Horror"
+      description: ""
+      aspects: ["Cooperative", "Dynamic", "Reactive", "Thematic", "Mature", "Complex"]
+				
+    - name: "Escape room games"
+      description: ""
+      aspects: ["Puzzle", "Solo"]
+
+    - name: "Everdell"
+      description: ""
+      aspects: ["Eurogame", "Thematic", "Resource", "Strategy"]
+
+    - name: "Exploding Kittens"
+      description: ""
+      aspects: ["Party", "Collector", "Competitive", "Whimsy", "Easy", "Luck"]
+
+    - name: "Flamecraft"
+      description: ""
+      aspects: ["Cozy", "Eurogame", "Thematic", "Resource"]
+
+    - name: "Galaxy Trucker"
+      description: ""
+      aspects: ["Risk taking", "Whimsy", "Reaction"]
+
+    - name: "Gloomhaven"
+      description: ""
+      aspects: ["Cooperative", "Complex", "Strategy"] 
+
+    - name: "Go"
+      description: ""
+      aspects: ["Competitive", "Classic", "Strategy", "Deterministic"]
+
+    - name: "Grunn / Frysk"
+      description: ""
+      aspects: ["Eurogame", "Collector", "Family", "Dynamic", "Thematic", "Interactive"]
+
+    - name: "Hitster"
+      description: ""
+      aspects: ["Party", "Trivia", "App", "Easy", "Audio"]
+
+    - name: "Isle of Cats"
+      description: ""
+      aspects: ["Eurogame", "Puzzle", "Thematic"]
+
+    - name: "Istanbul"
+      description: ""
+      aspects: ["Eurogame", "Resource", "Complex"]
+
+    - name: " Jenga"
+      description: ""
+      aspects: ["Risk taking", "Family", "Physical", "Easy"]
+   
+    - name: "Keezen"
+      description: ""
+      aspects: ["Family", "Competitive"]
+
+    - name: "King of Tokyo"
+      description: ""
+      aspects: ["Risk taking", "Whimsy"]
+
+    - name: "Kitchen Rush"
+      description: ""
+      aspects: ["Cooperative", "Reaction"]
+
+    - name: "Love Letter"
+      description: ""
+      aspects: ["Competitive", "Travel", "Easy"]
+
+    - name: "Ludo"
+      description: ""
+      aspects: ["Family", "Classic", "Easy", "Luck"]
+
+    - name: " Magic the Gathering"
+      description: ""
+      aspects: ["Personal Touch", "Collector", "Competitive", "Travel", "Complex"]
+
+    - name: "Mahé"
+      description: ""
+      aspects: ["Party", "Family", "Whimsy", "Easy", "Luck"]
+
+    - name: "Memory"
+      description: ""
+      aspects: ["Family", "Puzzle", "Easy"]
+
+    - name: "Metropolis"
+      description: ""
+      aspects: ["Eurogame", "Travel", "Easy "]
+
+    - name: "Monopoly"
+      description: ""
+      aspects: ["Family", "Social", "Classic", "Luck", "Trading"]
+
+    - name: "Munchkin"
+      description: ""
+      aspects: ["Competitive", "Social", "Thematic", "Whimsy", "Promises"]
+
+    - name: "Once Upon a  Time"
+      description: ""
+      aspects: ["Cooperative", "Cozy", "Social", "Storytelling", "Thematic", "Easy", "Travel", "Visually impaired"]
+
+    - name: "One Night Ultimate Werewolf"
+      description: ""
+      aspects: ["Social", "Puzzle", "Deduction", "Whimsy", "Complex"]
+
+    - name: "Pandemic"
+      description: ""
+      aspects: ["Cooperative", "Dynamic", "Reactive"]
+
+    - name: "Parasocial"
+      description: ""
+      aspects: ["Dynamic", "Collector", "Thematic", "Resource", "Interactive"]
+
+    - name: "Pick-o-mino [Regenwormen]"
+      description: ""
+      aspects: ["Family", "Risk taking", "Travel", "Easy"]
+
+    - name: "Poetry for Neanderthals"
+      description: ""
+      aspects: ["Party", "Whimsy", "Easy", "Visually impaired", "Audio"]
+
+    - name: "Poker"
+      description: ""
+      aspects: ["Risk taking", "Bluffing", "Classic"]
+    
+    - name: "Power Grid"
+      description: ""
+      aspects: ["Eurogame", "Strategy"]
+
+    - name: "Quacks"
+      description: ""
+      aspects: ["Dynamic", "Risk taking", "Deck Builder", "Whimsy", "Personal Touch"]
+
+    - name: "Race for the Galaxy"
+      description: ""
+      aspects: ["Eurogame", "Dynamic", "Interactive", "Complex", "Strategy"]
+
+    - name: "Ransom Notes"
+      description: ""
+      aspects: ["Party", "Social", "Vibes", "Whimsy", "Easy"]
+
+    - name: "Risk"
+      description: ""
+      aspects: ["Family", "Competitive", "Risk taking", "Strategy", "Classic", "Asymmetric", "Colour"]
+
+    - name: "Rite"
+      description: ""
+      aspects: ["Collector", "Competitive", "Complex", "Personal Touch"]  
+
+    - name: "Root"
+      description: ""
+      aspects: ["Competitive", "Asymmetric", "Thematic"]
+
+    - name: "Scout"
+      description: ""
+      aspects: ["Risk taking", "Travel", "Easy"]
+
+    - name: "Secret Hitler"
+      description: ""
+      aspects: ["Social", "Mature", "Deduction", "Asymmetric"]
+
+    - name: "SET"
+      description: ""
+      aspects: ["Family", "Reaction", "Easy", "Travel", "Colour"]
+
+    - name: "Shadowrun"
+      description: ""
+      aspects: ["Personal Touch", "Social", "Risk taking", "Cooperative", "Storytelling", "Thematic", "Mature", "Complex", "Visually impaired"]
+
+    - name: "Sheriff of Nottingham"
+      description: ""
+      aspects: ["Risk taking", "Social", "Bluffing", "Trading", "Promises"]
+
+    - name: "Skull"
+      description: ""
+      aspects: ["Risk taking", "Bluffing", "Easy", "Travel"]
+
+    - name: "Slay the Spire"
+      description: ""
+      aspects: ["Dynamic", "Cooperative", "Collector", "Deck Builder", "Personal Touch", "Thematic"]
+
+    - name: "Small world"
+      description: ""
+      aspects: ["Dynamic", "Eurogame", "Competitive", "Interactive"]
+
+    - name: "Snakes and Ladders"
+      description: ""
+      aspects: ["Family", "Classic", "Luck", "Easy"]
+
+    - name: "Splendor"
+      description: ""
+      aspects: ["Eurogame", "Dynamic", "Strategy", "Interactive", "Resource", "Easy", "Colour"]
+
+    - name: " Star Realms"
+      description: ""
+      aspects: ["Competitive", "Dynamic", "Deck Builder"]
+
+    - name: "Stardew Valley: The Board Game"
+      description: ""
+      aspects: ["Cooperative", "Cozy", "Collector", "Resource", "Thematic"]
+
+    - name: "Stratego"
+      description: ""
+      aspects: ["Competitive", "Risk taking", "Classic"]
+
+    - name: "Sushi Go"
+      description: ""
+      aspects: ["Family", "Dynamic", "Interactive", "Easy", "Travel"]
+
+    - name: "Terraforming Mars"
+      description: ""
+      aspects: ["Dynamic", "Personal Touch", "Eurogame", "Complex", "Strategy", "Solo", "Resource", "Interactive"]
+
+    - name: "The Mind"
+      description: ""
+      aspects: ["Party", "Social", "Vibes", "Cooperative", "Easy", "Travel"]
+
+    - name: "The Resistance"
+      description: ""
+      aspects: ["Social", "Deduction", "Easy"]
+
+    - name: "The Werewolves of Millers Hollow"
+      description: ""
+      aspects: ["Party", "Social", "Competitive", "Classic", "Deduction", "Asymmetric"]
+
+    - name: "Ticket to Ride"
+      description: ""
+      aspects: ["Dynamic", "Family", "Eurogame", "Classic", "Interactive", "Strategy"]
+
+    - name: "Trivial Pursuit"
+      description: ""   
+      aspects: ["Family", "Trivia", "Easy", "Visually impaired"]
+
+    - name: "Twister"
+      description: ""
+      aspects: ["Dynamic", "Family", "Physical", "Classic", "Reaction", "Interactive", "Easy"]
+
+    - name: "Uno"
+      description: ""
+      aspects: ["Party", "Competitive", "Travel", "Classic", "Easy", "Luck"]
+    
+    - name: "Unsolved Case Files"
+      description: ""
+      aspects: ["Puzzle", "Cooperative", "Solo"]
+
+    - name: "Villainous"
+      description: ""
+      aspects: ["Competitive", "Collector", "Thematic", "Asymmetric", "Personal Touch"]
+
+    - name: "Warhammer"
+      description: ""
+      aspects: ["Personal Touch", "Collector", "Competitive", "Complex", "Thematic", "Strategy"]
+
+    - name: "Wavelength"
+      description: ""
+      aspects: ["Social", "Vibes", "Cooperative", "Party", "Easy"]  
+
+    - name: "Welcome to the Dungeon"
+      description: ""
+      aspects: ["Risk taking", "Easy"]  
+
+    - name: "White Stories"
+      description: ""
+      aspects: ["Social", "Cooperative", "Vibes", "Travel", "Easy", "Visually impaired", "Audio"]
+
+    - name: "Wingspan"
+      description: ""
+      aspects: ["Eurogame", "Collector", "Thematic"]

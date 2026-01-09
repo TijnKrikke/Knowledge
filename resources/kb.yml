@@ -1,103 +1,662 @@
 
   questions:
-    - text: "Can the game incorporate mature elements such as violence/drugs?"
-      condition: "Mature?"
-      options:
-        - text: "Yes, but not necessary"
-          results:
-            - type: "add_aspect"
-              value: "Mature~"
-        - text: "Yes, this is preferred"
-          results:
-            - type: "add_aspect"
-              value: "Mature+"
-        - text: "No, there should not be mature elements"
-          results:
-            - type: "add_aspect"
-              value: "Mature-"
-
-    - text: "This is a test question, hopefully you do not see this (outside of kb.yml) for now"
-      condition: "Mature?"
-      options:
-        - text: "Yes, but not necessary"
-          results:
-            - type: "add_aspect"
-              value: "Mature~"
-        - text: "Yes, this is preferred"
-          results:
-            - type: "add_aspect"
-              value: "Mature+"
-        - text: "No, there should not be mature elements"
-          results:
-            - type: "add_aspect"
-              value: "Mature-"
-
-    - text: "What is the target age?"
-      condition: null
-      options:
-        - text: "5-7"
-          results:
-            - type: "set_age_range"
-              value: "5-7"
-            - type: "add_aspect"
-              value: "Mature-"
-        - text: "8-11"
-          results:
-            - type: "set_age_range"
-              value: "8-11"
-            - type: "add_aspect"
-              value: "Mature-"
-        - text: "12-16"
-          results:
-            - type: "set_age_range"
-              value: "12-16"
-        - text: "17-22"
-          results:
-            - type: "set_age_range"
-              value: "17-22"
-
-    - text: "Complexity?"
-      condition: null
-      options:
-        - text: "Simple"
-          results:
-            - type: "add_aspect"
-              value: "Complex-"
-        - text: "Moderate"
-          results:
-            - type: "add_aspect"
-              value: "Complex~"
-        - text: "Complex"
-          results:
-            - type: "add_aspect"
-              value: "Complex+"
-
-    - text: "Can there be complex actions?"
-      condition: null
+    - text: "Do you want a social experience?"
+      condition: "Social?"
       options:
         - text: "Yes"
           results:
             - type: "add_aspect"
-              value: "Complex-Actions"
+              value: "Social+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Social~"
         - text: "No"
           results:
             - type: "add_aspect"
-              value: "No-Complex-Actions"
+              value: "Social-"
+
+    - text: "Do you prefer a complex game?"
+      condition: "Complex?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Complex+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Complex~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Complex-"
+
+    - text: "Should the game be accessible for visually impaired players?"
+      condition: "Visually impaired?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Visually impaired+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Visually impaired~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Visually impaired-"
+
+    - text: "Do you want an app-based experience?"
+      condition: "App?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "App+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "App~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "App-"
+
+    - text: "Should the game include audio features?"
+      condition: "Audio?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Audio+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Audio~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Audio-"
+
+    - text: "Do you want an asymmetric play style?"
+      condition: "Asymmetric?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Asymmetric+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Asymmetric~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Asymmetric-"
+
+    - text: "Do you enjoy bluffing mechanics?"
+      condition: "Bluffing?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Bluffing+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Bluffing~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Bluffing-"
+
+    - text: "Do you prefer classic/traditional games?"
+      condition: "Classic?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Classic+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Classic~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Classic-"
+
+    - text: "Do you want a cozy experience?"
+      condition: "Cozy?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Cozy+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Cozy~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Cozy-"
+
+    - text: "Do you care about colour-based mechanics?"
+      condition: "Colour?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Colour+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Colour~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Colour-"
+
+    - text: "Do you like competitive games?"
+      condition: "Competitive?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Competitive+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Competitive~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Competitive-"
+
+    - text: "Do you want collectible elements?"
+      condition: "Collector?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Collector+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Collector~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Collector-"
+
+    - text: "Do you like deck-building mechanics?"
+      condition: "Deck Builder?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Deck Builder+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Deck Builder~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Deck Builder-"
+
+    - text: "Do you want deduction mechanics?"
+      condition: "Deduction?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Deduction+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Deduction~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Deduction-"
+
+    - text: "Do you prefer deterministic gameplay?"
+      condition: "Deterministic?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Deterministic+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Deterministic~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Deterministic-"
+
+    - text: "Do you want dynamic gameplay?"
+      condition: "Dynamic?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Dynamic+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Dynamic~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Dynamic-"
+
+    - text: "Do you want an easy-to-learn game?"
+      condition: "Easy?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Easy+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Easy~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Easy-"
+
+    - text: "Do you prefer eurogame mechanics?"
+      condition: "Eurogame?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Eurogame+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Eurogame~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Eurogame-"
+
+    - text: "Do you want a family-friendly game?"
+      condition: "Family?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Family+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Family~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Family-"
+
+    - text: "Do you want interactive elements?"
+      condition: "Interactive?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Interactive+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Interactive~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Interactive-"
+
+    - text: "Do you like games that depend on luck?"
+      condition: "Luck?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Luck+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Luck~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Luck-"
+
+    - text: "Do you want mature elements?"
+      condition: "Mature?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Mature+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Mature~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Mature-"
+
+    - text: "Do you prefer a personal-touch/legacy feel?"
+      condition: "Personal Touch?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Personal Touch+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Personal Touch~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Personal Touch-"
+
+    - text: "Do you want physical components/mechanics?"
+      condition: "Physical?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Physical+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Physical~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Physical-"
+
+    - text: "Do you care about promises/negotiation mechanics?"
+      condition: "Promises?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Promises+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Promises~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Promises-"
+
+    - text: "Do you want puzzle mechanics?"
+      condition: "Puzzle?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Puzzle+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Puzzle~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Puzzle-"
+
+    - text: "Do you prefer reactive gameplay?"
+      condition: "Reactive?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Reactive+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Reactive~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Reactive-"
+
+    - text: "Do you want resource-management mechanics?"
+      condition: "Resource?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Resource+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Resource~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Resource-"
+
+    - text: "Do you like risk-taking mechanics?"
+      condition: "Risk taking?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Risk taking+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Risk taking~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Risk taking-"
+
+    - text: "Do you want solo play options?"
+      condition: "Solo?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Solo+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Solo~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Solo-"
+
+    - text: "Do you prefer strategic gameplay?"
+      condition: "Strategy?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Strategy+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Strategy~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Strategy-"
+
+    - text: "Do you want storytelling elements?"
+      condition: "Storytelling?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Storytelling+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Storytelling~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Storytelling-"
+
+    - text: "Do you want thematic elements?"
+      condition: "Thematic?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Thematic+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Thematic~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Thematic-"
+
+    - text: "Do you want trading mechanics?"
+      condition: "Trading?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Trading+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Trading~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Trading-"
+
+    - text: "Do you enjoy trivia elements?"
+      condition: "Trivia?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Trivia+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Trivia~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Trivia-"
+
+    - text: "Do you care about vibes/atmosphere?"
+      condition: "Vibes?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Vibes+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Vibes~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Vibes-"
+
+    - text: "Do you like whimsical/quirky games?"
+      condition: "Whimsy?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Whimsy+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Whimsy~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Whimsy-"
+
+    - text: "Do you want travel-friendly games?"
+      condition: "Travel?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Travel+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Travel~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Travel-"
+
+    - text: "Do you want collector mechanics?"
+      condition: "Collector?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Collector+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Collector~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Collector-"
+
+    - text: "Do you prefer cooperative play?"
+      condition: "Cooperative?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Cooperative+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Cooperative~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Cooperative-"
+
+    - text: "Do you want colour-based mechanics?"
+      condition: "Colour?"
+      options:
+        - text: "Yes"
+          results:
+            - type: "add_aspect"
+              value: "Colour+"
+        - text: "I don't care"
+          results:
+            - type: "add_aspect"
+              value: "Colour~"
+        - text: "No"
+          results:
+            - type: "add_aspect"
+              value: "Colour-"
 
   games:
-    # - name: "Risk"
-    #   description: "Area-control strategy game"
-    #   # age: [7, 99]
-    #   # players: [2, 6]
-    #   # duration: 120
-    #   aspects: ["Strategy"]
-
-    # - name: "Cards Against Humanity"
-    #   description: "Adult party game"
-    #   # age: [16, 35]
-    #   # players: [4, 20]
-    #   # duration: 60
-    #   aspects: ["Mature", "Party"]
 
     - name: "7 wonders Eurogame"
       description: ""
@@ -222,7 +781,7 @@
     - name: "Eldritch Horror"
       description: ""
       aspects: ["Cooperative", "Dynamic", "Reactive", "Thematic", "Mature", "Complex"]
-				
+
     - name: "Escape room games"
       description: ""
       aspects: ["Puzzle", "Solo"]

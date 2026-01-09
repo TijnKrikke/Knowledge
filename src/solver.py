@@ -8,6 +8,9 @@ class Solver:
 
     def get_question(self, questions: list[Question]) -> Question | None:
         self.games_left = self.get_games_left()
+        if len(self.games_left) <= 1:
+            return None
+
         all_aspects_left = []
         for game in self.games_left:
             for aspect in game.aspects:

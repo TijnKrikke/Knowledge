@@ -27,7 +27,7 @@ Open a terminal in the working directory. Run the command **streamlit run src/st
 │   ├── model.py
 │   ├── parser.py
 │   ├── solver.py
-│   ├── streamlit.py
+│   ├── streamlit_app.py
 ├── .gitignore
 ├── README.md
 ├── requirements.txt

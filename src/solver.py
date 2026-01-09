@@ -1,10 +1,12 @@
-from model import Question, Option, Condition, Facts, Aspect, Game
+from model import Question, Option, Condition, Facts, Rule, Aspect, Game
 
 class Solver:
-    def __init__(self, games: list[Game] = []):
+    def __init__(self, games: list[Game] = [], rules: list[Rule] = []):
         self.facts = Facts(aspects_pos=set(), aspects_neg=set(), aspects_idc=set(), age=(0, 100), players=(0, 100), duration=0)
         self.questions_asked = set()
         self.games_left = games
+        self.rules_left = rules
+        self.known_facts = []
 
     def get_question(self, questions: list[Question]) -> Question | None:
         self.games_left = self.get_games_left()
@@ -41,8 +43,31 @@ class Solver:
                     self.facts.aspects_idc.add(Aspect(option_value[:-1]))
                 modified = True
 
+        if modified:
+            self.loop_rules()
+
         return modified  
-    
+
+    def loop_rules(self):
+        modified = True
+
+        while modified:
+            modified = False
+            for rule in self.rules_left:
+                if self.evaluate_rule(rule):
+                    self.rules_left.remove(rule)
+                    modified = True
+                    for o in rule.results:
+                        option_type = o.type
+                        option_value = o.value
+                        if option_type == "add_aspect":
+                            if option_value[-1] == "+":
+                                self.facts.aspects_pos.add(Aspect(option_value[:-1]))
+                            elif option_value[-1] == "-":
+                                self.facts.aspects_neg.add(Aspect(option_value[:-1]))
+                            elif option_value[-1] == "~":
+                                self.facts.aspects_idc.add(Aspect(option_value[:-1]))
+
     def _split_range(self, range_str: str) -> tuple[int, int]:
         part = range_str.split("-")
         return (int(part[0]), int(part[1]))
@@ -84,3 +109,23 @@ class Solver:
                 matches.append(game)
         self.games_left = matches
         return matches
+
+    def evaluate_rule(self, rule: Rule) -> bool:
+        return self.evaluate_expr(rule.condition)
+
+    def evaluate_expr(self, expr: dict) -> bool:
+        (operand, value), = expr.items()
+
+        if operand == "and":
+            return all(self.evaluate_expr(sub_expr) for sub_expr in value)
+
+        if operand == "or":
+            return any(self.evaluate_expr(sub_expr) for sub_expr in value)
+
+        if operand == "fact":
+            return value in self.known_facts
+
+        if operand == "aspect":
+            return Aspect(str(value)) in self.facts.aspects_pos
+
+        raise Exception(f"Unknown operand {operand}")

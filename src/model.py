@@ -34,7 +34,14 @@ class Question:
     condition: Condition
 
 @dataclass
+class Rule:
+    description: str
+    condition: dict
+    results: list[Result]
+
+@dataclass
 class KB:
+    rules: list[Rule]
     questions: list[Question]
     games: list[Game]
 

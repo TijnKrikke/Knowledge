@@ -17,7 +17,7 @@ kb = load_kb_cached()
 
 
 if "solver" not in st.session_state:
-    st.session_state.solver = Solver(games=kb.games)
+    st.session_state.solver = Solver(games=kb.games, rules=kb.rules)
 
 
 question = st.session_state.solver.get_question(kb.questions)

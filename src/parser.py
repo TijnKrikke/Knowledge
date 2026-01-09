@@ -2,7 +2,7 @@ import yaml
 import os
 from typing import Optional
 
-from model import KB, Question, Option, Result, Condition, Game, Aspect
+from model import KB, Question, Option, Result, Condition, Game, Aspect, Rule
 
 
 def load_kb(path: Optional[str] = None) -> KB:
@@ -28,6 +28,20 @@ def load_kb(path: Optional[str] = None) -> KB:
 
         questions.append(Question(text=question.get("text"), options=options, condition=condition))
 
+    rules = []
+    for rule in data.get("rules", []):
+        results = []
+        for r in rule.get("results", []):
+            results.append(Result(type=r.get("type"), value=r.get("value")))
+
+        rules.append(
+            Rule(
+                description=rule.get("description"),
+                condition=rule.get("condition"),
+                results=results
+            )
+        )
+
     games = []
     for game in data.get("games", []):
         aspects = {Aspect(name=a) for a in game.get("aspects", [])}
@@ -44,4 +58,4 @@ def load_kb(path: Optional[str] = None) -> KB:
             )
         )
 
-    return KB(questions=questions, games=games)
+    return KB(questions=questions, games=games, rules=rules)

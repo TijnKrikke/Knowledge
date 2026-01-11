@@ -8,6 +8,9 @@ rules:
         - or:
             - fact: "Allows Lying+"
             - fact: "Hidden Information+"
+    results:
+      - type: "add_aspect"
+        value: "Bluffing+"
 #  - description: >
 #      Dummy test1. Social => Risk Taking
 #    condition:
@@ -24,6 +27,39 @@ rules:
 #        value: "Complex+"
 
 questions:
+  - text: "Do you enjoy games where u can lie?"
+    condition: "Allows Lying?"
+    options:
+      - text: "Yes"
+        results:
+          - type: "add_fact"
+            value: "Allows Lying+"
+      - text: "I don't care"
+        results:
+          - type: "add_fact"
+            value: "Allows Lying~"
+      - text: "No"
+        results:
+          - type: "add_fact"
+            value: "Allows Lying-"
+
+  - text: "Hide info?"
+    condition: "Hidden Information?"
+    options:
+      - text: "Yes"
+        results:
+          - type: "add_fact"
+            value: "Hidden Information+"
+      - text: "I don't care"
+        results:
+          - type: "add_fact"
+            value: "Hidden Information~"
+      - text: "No"
+        results:
+          - type: "add_fact"
+            value: "Hidden Information-"
+
+
   - text: "Do you want a social experience?"
     condition: "Social?"
     options:
@@ -120,21 +156,21 @@ questions:
           - type: "add_aspect"
             value: "Asymmetric-"
 
-  - text: "Do you enjoy bluffing mechanics?"
-    condition: "Bluffing?"
-    options:
-      - text: "Yes"
-        results:
-          - type: "add_aspect"
-            value: "Bluffing+"
-      - text: "I don't care"
-        results:
-          - type: "add_aspect"
-            value: "Bluffing~"
-      - text: "No"
-        results:
-          - type: "add_aspect"
-            value: "Bluffing-"
+  # - text: "Do you enjoy bluffing mechanics?"
+  #   condition: "Bluffing?"
+  #   options:
+  #     - text: "Yes"
+  #       results:
+  #         - type: "add_aspect"
+  #           value: "Bluffing+"
+  #     - text: "I don't care"
+  #       results:
+  #         - type: "add_aspect"
+  #           value: "Bluffing~"
+  #     - text: "No"
+  #       results:
+  #         - type: "add_aspect"
+  #           value: "Bluffing-"
 
   - text: "Do you prefer classic/traditional games?"
     condition: "Classic?"

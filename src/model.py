@@ -45,11 +45,15 @@ class KB:
     questions: list[Question]
     games: list[Game]
 
+@dataclass(eq=True, frozen=True)
+class Fact:
+    name:str
+
 @dataclass
 class Facts:
     aspects_pos: set[Aspect]
     aspects_neg: set[Aspect]
     aspects_idc: set[Aspect]
-    age: tuple[int, int]
-    players: tuple[int, int]
-    duration: int
+    fact_pos: set[Fact]
+    fact_neg: set[Fact]
+    fact_idc: set[Fact]

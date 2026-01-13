@@ -1,0 +1,412 @@
+rules:
+  ###############################################
+  # The following rules are Aspect-defining rules
+  ###############################################
+  - description: >
+      Collector games usually involve expansions and Limited editions.
+      They have a greater visual appeal and can be quite pricey.
+    condition:
+      and:
+        - fact: "Visual appeal+"
+        - fact: "Expensive+"
+        - or:
+            - fact: "Limited Editions+"
+            - fact: "Expansions+"
+    results:
+      - aspect: "Collector+"
+
+  - description: >
+      Competitive games allow players to showcase their skill by beating
+      opponents. They very often have moves that allow you to directly
+      target or attack other players. People that do not like to lose will
+      not like these games.
+    condition:
+      and:
+        - fact: "Attack opponents+"
+        - fact: "Elimination+"
+    results:
+      - aspect: "Competitive+"
+
+  - description: >
+      Cooperative games are about working together to accomplish a
+      common goal.
+    condition:
+      and:
+        - fact: "Work together+"
+        - fact: "Elimination-"
+        - aspect: "Asymmetric-"
+    results:
+      - aspect: "Cooperative+"
+
+  - description: >
+      Cozy games are stress-free. They usually have pretty pictures.
+      They favour having fun over winning.
+    condition:
+      and:
+        - fact: "Fun > Winning+"
+        - fact: "Visual appeal+"
+        - fact: "Stress free+"
+        - fact: "Betrayal-"
+        - fact: "Elimination-"
+    results:
+      - aspect: "Cozy+"
+
+  - description: >
+      Eurogames are about collecting points instead of eliminating
+      opponents. You usually do not know who is ahead until the score
+      is calculated at the end. Players who dislike being targeted, or
+      those that have a hard time when they lose prefer these games.
+    condition:
+      and:
+        - fact: "Attack opponents-"
+        - fact: "Elimination-"
+    results:
+      - aspect: "Eurogame+"
+
+  - description: >
+      Family games can be enjoyed by all ages, from children to
+      grandparents. They do not have many rules that need to be learned.
+    condition:
+      and:
+        - aspect: "Mature-"
+        - fact: "Many rules-"
+    results:
+      - aspect: "Family+"
+
+  - description: >
+      Party games are suitable for larger groups. They are usually more
+      about having fun than winning. You don't often have to strategically
+      plan your moves ahead of time.
+    condition:
+      and:
+        - fact: "Large groups+"
+        - or:
+          - aspect: "Strategic-"
+          - fact: "Fun > Winning+"
+    results:
+      - aspect: "Party+"
+
+  - description: >
+      Risk taking games are about taking the right opportunities.
+      But you have to be careful to not be too greedy, or it will
+      cost you the game.
+    condition:
+      and:
+        - fact: "Opportunities+"
+        - fact: "Risky moves+"
+        - fact: "Stress free-"
+    results:
+      - aspect: "Risk taking+"
+
+  - description: >
+      Bluffing is present if the game has Risk-Taking
+      and allows lying or relies on withholding information.
+    condition:
+      and:
+        - aspect: "Risk taking+"
+        - or:
+            - fact: "Allows Lying+"
+            - fact: "Hidden Information+"
+    results:
+      - aspect: "Bluffing+"
+
+  - description: >
+      Social games are all about communication.
+      They all require you to know the group or learn the group
+      you are playing with.
+    condition:
+      or:
+        - aspect: "Storytelling+"
+        - aspect: "Vibes+"
+        - aspect: "Trading+"
+        - aspect: "Promises+"
+        - aspect: "Social deduction+"
+    results:
+      - aspect: "Social+"
+
+  - description: >
+      For Storytelling games, the objective is not always to win,
+      but to create a story together.
+    condition:
+      and:
+        - fact: "Immersion+"
+        - fact: "Communication+"
+        - fact: "Fun > Winning+"
+    results:
+      - aspect: "Storytelling+"
+
+  - description: >
+      For Vibes games, you have to be on the same wavelength as
+      your fellow players to win and/or have fun.
+    condition:
+      and:
+        - fact: "Connection+"
+        - fact: "Communication+"
+    results:
+      - aspect: "Vibes+"
+
+  - description: >
+      In Trading games, you have to exchange resources with the
+      other players in order to succeed.
+    condition:
+      and:
+        - fact: "Exchange resources+"
+        - fact: "Communication+"
+    results:
+      - aspect: "Trading+"
+
+  - description: >
+      Promises games are all about exchanging favours. You help them
+      now, and they might help you out later. But beware, promises can
+      be broken.
+    condition:
+      and:
+        - fact: "Betrayal+"
+        - fact: "Favours+"
+        - fact: "Communication+"
+    results:
+      - aspect: "Promises+"
+
+  - description: >
+      Social deduction games are about finding out who your friends
+      and enemies are. You will often have to convince others that
+      you can be trusted. Staying mostly silent is often a quick
+      way to lose.
+    condition:
+      and:
+        - fact: "Attack opponents+"
+        - fact: "Communication+"
+        - fact: "Deduction+"
+    results:
+      - aspect: "Social deduction+"
+
+  - description: >
+      Dynamic games are about a game state that is constantly changing.
+      You have to adapt to the new situation or lose.
+    condition:
+      or:
+        - aspect: "Reactive+"
+        - aspect: "Deck Builder+"
+        - aspect: "Interactive+"
+    results:
+      - aspect: "Dynamic+"
+
+  - description: >
+      Reactive games present you with new options, challenges and
+      opportunities. Usually through random events determined by
+      the game.
+    condition:
+      and:
+        - fact: "Opportunities+"
+        - fact: "Options change+"
+    results:
+      - aspect: "Reactive+"
+
+  - description: >
+      Deck builder games allow you to change your options throughout
+      the game and hone in on a strategy.
+    condition:
+      and:
+        - fact: "Options change+"
+        - fact: "Deck building+"
+    results:
+      - aspect: "Deck builder+"
+
+  - description: >
+      Interactive games will limit your options based on the choices your
+      opponents make. Often no new options are introduced.
+    condition:
+      and:
+        - fact: "Interaction+"
+    results:
+      - aspect: "Interactive+"
+
+  - description: >
+      Asymmetry is when not all players have the same goal.
+    condition:
+      and:
+        - fact: "Asymmetry+"
+    results:
+      - aspect: "Asymmetric+"
+
+  - description: >
+      Classics are genre defining games that withstood the test of time.
+    condition:
+      and:
+        - fact: "Genre defining+"
+    results:
+      - aspect: "Classic+"
+
+  - description: >
+      Complexity arises when you have many choices in a given turn.
+      These games usually take a long time to explain and can sometimes
+      be a little overwhelming.
+    condition:
+      and:
+        - aspect: "Easy-"
+        - fact: "Many rules+"
+        - fact: "Multiple plays+"
+    results:
+      - aspect: "Complex+"
+
+  - description: >
+      Easy games have rules that can be explained in 5 minutes.
+    condition:
+      and:
+        - fact: "Short explanation+"
+    results:
+      - aspect: "Easy+"
+
+  - description: >
+      Deterministic games have zero luck involved.
+      No die rolls, random chance or shuffling.
+      All information is visible to all players.
+    condition:
+      and:
+        - aspect: "Luck-"
+        - fact: "Hidden Information-"
+        - fact: "Options change-"
+    results:
+      - aspect: "Deterministic+"
+
+  - description: >
+      In these games, Luck plays a significant factor to determine
+      the winner.
+    condition:
+      or:
+        - fact: "Die rolls+"
+        - fact: "Randomness+"
+    results:
+      - aspect: "Luck+"
+
+  - description: >
+      Unsuitable for younger audiences, due to scary, explicit, violent
+      or controversial themes.
+    condition:
+      or:
+        - fact: "Explicit+"
+        - fact: "Controversial+"
+        - fact: "Violent+"
+    results:
+      - aspect: "Mature+"
+
+  - description: >
+      Some games allow you to heavily customize your own playstyle.
+      There are many ways to play the game and each player will
+      have completely different actions available to them.
+      Usually complex, but you do not need to know all the rules to play.
+    condition:
+      and:
+        - fact: "Own playstyle+"
+        - fact: "Many rules+"
+    results:
+      - aspect: "Personal Touch+"
+
+  - description: >
+      Reaction based games do not have turns,
+      but are based on reaction speed.
+    condition:
+      and:
+        - fact: "Stress free-"
+        - fact: "Many rules-"
+        - fact: "Reaction speed+"
+    results:
+      - aspect: "Reaction+"
+
+  - description: >
+      Resource games are all about keeping track of multiple
+      currencies and exchanging them.
+    condition:
+      and:
+        - fact: "Collect resources+"
+    results:
+      - aspect: "Resource+"
+
+  - description: >
+      Some games do not need other players.
+    condition:
+      and:
+        - fact: "Solo playable+"
+    results:
+      - aspect: "Solo+"
+
+  - description: >
+      Strategy games are all about planning ahead. Anticipating what
+      comes next.
+    condition:
+      and:
+        - fact: "Requires planning+"
+    results:
+      - aspect: "Strategy+"
+
+  - description: >
+      These are games you specifically play because of the setting,
+      theme or lore.
+    condition:
+      and:
+        - fact: "Strong theme+"
+    results:
+      - aspect: "Thematic+"
+
+  - description: >
+      These games are easy to bring along.
+    condition:
+      and:
+        - fact: "Compact+"
+        - fact: "Light weight+"
+    results:
+      - aspect: "Travel+"
+
+  - description: >
+      These games do not take themself too seriously.
+      You can have fun even if you are losing.
+    condition:
+      and:
+        - fact: "Fun > Winning+"
+        - fact: "Serious-"
+    results:
+      - aspect: "Whimsy+"
+
+  - description: >
+      These games are about knowing things and test your knowledge
+      of specific areas.
+    condition:
+      and:
+        - fact: "Knowledge+"
+    results:
+      - aspect: "Trivia+"
+
+  - description: >
+      Puzzle games are about finding patterns or remembering events.
+    condition:
+      or:
+        - fact: "Find patterns+"
+        - fact: "Memorization+"
+    results:
+      - aspect: "Puzzle+"
+
+  - description: >
+      Single play games can usually only be played once, because
+      you already know the outcome.
+    condition:
+      and:
+        - fact: "Multiple plays-"
+        - fact: "Single play+"
+    results:
+      - aspect: "Single+"
+
+  - description: >
+      An app is required to play this game.
+    condition:
+      and:
+        - fact: "App required+"
+    results:
+      - aspect: "App+"
+
+  - description: >
+      There is a physical component to this game
+    condition:
+      and:
+        - fact: "Physical impaired-"
+    results:
+      - aspect: "Physical+"

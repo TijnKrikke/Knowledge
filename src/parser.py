@@ -5,15 +5,23 @@ from typing import Optional
 from model import KB, Question, Option, Result, Condition, Game, Aspect, Rule
 
 
-def load_kb(path: Optional[str] = None) -> KB:
-    if path is None:
-        path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "kb.yml"))
+def load_kb(games_path: Optional[str] = None, questions_path: Optional[str] = None, rules_path: Optional[str] = None) -> KB:
+    if games_path is None:
+        games_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "games.yml"))
+    if questions_path is None:
+        questions_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "questions.yml"))
+    if rules_path is None:
+        rules_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "rules.yml"))
 
-    with open(path, "r", encoding="utf-8") as file:
-        data = yaml.safe_load(file)
+    with open(games_path, "r", encoding="utf-8") as file:
+        games_data = yaml.safe_load(file)
+    with open(questions_path, "r", encoding="utf-8") as file:
+        questions_data = yaml.safe_load(file)
+    with open(rules_path, "r", encoding="utf-8") as file:
+        rules_data = yaml.safe_load(file)
 
     questions = []
-    for question in data.get("questions", []):
+    for question in questions_data.get("questions", []):
         options = []
         for o in question.get("options", []):
             results = []
@@ -29,7 +37,7 @@ def load_kb(path: Optional[str] = None) -> KB:
         questions.append(Question(text=question.get("text"), options=options, condition=condition))
 
     rules = []
-    for rule in data.get("rules", []):
+    for rule in rules_data.get("rules", []):
         results = []
         for r in rule.get("results", []):
             results.append(Result(type=r.get("type"), value=r.get("value")))
@@ -43,7 +51,7 @@ def load_kb(path: Optional[str] = None) -> KB:
         )
 
     games = []
-    for game in data.get("games", []):
+    for game in games_data.get("games", []):
         aspects = {Aspect(name=a) for a in game.get("aspects", [])}
         age = tuple(game.get("age", [0, 0]))
         players = tuple(game.get("players", [0, 0]))

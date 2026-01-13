@@ -10,8 +10,10 @@ st.set_page_config(
 
 @st.cache_data
 def load_kb_cached():
-    kb_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "kb.yml"))
-    return load_kb(kb_path)
+    games_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "games.yml"))
+    questions_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "questions.yml"))
+    rules_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "resources", "rules.yml"))
+    return load_kb(games_path, questions_path, rules_path)
 
 kb = load_kb_cached()
 

@@ -1,4 +1,15 @@
 from dataclasses import dataclass
+from enum import Enum
+
+class Truth(Enum):
+    NO = 0
+    YES = 1
+    IDC = 2
+    UNKNOWN = 3
+
+@dataclass(eq=True, frozen=True)
+class Fact:
+    name:str
 
 @dataclass(eq=True, frozen=True)
 class Aspect:
@@ -14,30 +25,20 @@ class Game:
     aspects: set[Aspect]
 
 @dataclass
-class Condition:
-    todo: str #TODO
-
-@dataclass
-class Result:
-    type: str # add_aspect, "set_age", "set_players"
-    value: str
-
-@dataclass
 class Option:
     text: str
-    results: list[Result]
+    results: list[Fact|Aspect]
 
 @dataclass
 class Question:
     text: str
     options: list[Option]
-    condition: Condition
 
 @dataclass
 class Rule:
     description: str
     condition: dict
-    results: list[Result]
+    results: list[Fact|Aspect]
 
 @dataclass
 class KB:
@@ -45,15 +46,31 @@ class KB:
     questions: list[Question]
     games: list[Game]
 
-@dataclass(eq=True, frozen=True)
-class Fact:
-    name:str
-
 @dataclass
 class Facts:
-    aspects_pos: set[Aspect]
-    aspects_neg: set[Aspect]
-    aspects_idc: set[Aspect]
-    fact_pos: set[Fact]
-    fact_neg: set[Fact]
-    fact_idc: set[Fact]
+    fact_pos: set[Fact|Aspect]
+    fact_neg: set[Fact|Aspect]
+    fact_idc: set[Fact|Aspect]
+    fact_known: set[Fact|Aspect]
+    remaining_rules: list[Rule]
+    remaining_questions: list[Question]
+    remaining_games: list[Game]
+
+    def add_fact(self, fact: Fact|Aspect):
+        name = fact.name
+
+        if type(fact) is Fact:
+            fact = Fact(name=name[:-1])
+        elif type(fact) is Aspect:
+            fact = Aspect(name=name[:-1])
+        else:
+            raise Exception(f"Unknown fact type: {type(fact)}")
+
+        if name[-1] == "+":
+            self.fact_pos.add(fact)
+        if name[-1] == "-":
+            self.fact_neg.add(fact)
+        if name[-1] == "~":
+            self.fact_idc.add(fact)
+
+        self.fact_known.add(fact)

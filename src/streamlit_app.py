@@ -19,11 +19,10 @@ kb = load_kb_cached()
 
 
 if "solver" not in st.session_state:
-    st.session_state.solver = Solver(games=kb.games, rules=kb.rules)
+    st.session_state.solver = Solver(kb=kb)
 
-
-question = st.session_state.solver.get_question(kb.questions)
 matches = st.session_state.solver.get_games_left()
+question = st.session_state.solver.get_question()
 
 if question is None:
     st.subheader("Recommendation")
@@ -36,6 +35,8 @@ if question is None:
         st.info("No recommendation.")
 else:
     st.markdown(f"**Games left:** {len(matches)}")
+    st.markdown(f"Goal: {st.session_state.solver.cur_goal_aspect}")
+    st.markdown(f"Sub Goal: {st.session_state.solver.cur_sub_goal}")
     st.subheader("Question")
     st.markdown(question.text)
     for answer in question.options:

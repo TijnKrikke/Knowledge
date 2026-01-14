@@ -1,241 +1,223 @@
-from model import Question, Option, Condition, Facts, Rule, Aspect, Game, Fact
+from model import Question, Option, Facts, Rule, Aspect, Game, Fact, KB, Truth
 import random
 
 class Solver:
-    def __init__(self, games: list[Game] = [], rules: list[Rule] = []):
-        self.facts = Facts(aspects_pos=set(), aspects_neg=set(), aspects_idc=set(), fact_pos=set(), fact_neg=set(), fact_idc=set())
-        self.questions_asked = set()
-        self.games_left = games
-        self.rules_left = rules
-        self.known_facts = []
+    def __init__(self, kb: KB):
+        self.kb = kb
+        self.facts = Facts(
+            fact_pos=set(),
+            fact_neg=set(),
+            fact_idc=set(),
+            fact_known=set(),
+            remaining_rules=kb.rules.copy(),
+            remaining_questions=kb.questions.copy(),
+            remaining_games=kb.games.copy(),
+        )
 
-        self.question_queue = []
-        self.cur_goal_aspect = ""
+        self.reason_unknown = None
+        self.cur_goal_aspect = None
+        self.cur_sub_goal = None
+        self.x = 0
 
-    def get_question(self, questions: list[Question]) -> Question | None:
-        def identy_rules_and_questions(check_aspect):
-            #check questions
-            for question in questions:
-                if question.text in self.questions_asked:
-                    continue
-                if question.condition.todo[:-1] == check_aspect.name:
-                    self.question_queue.append(question)
-            # print(self.question_queue, "question")
-
-            rules = []
-            for rule in self.rules_left:
-                for result in rule.results:
-                    if result.value[:-1] == check_aspect.name:
-                        rules.append(rule) 
-                        print("rule found: ", rule)       
-            return rules
-        
-        def check_rules(c_rules):
-            print("Checking rule")
-            for c_rule in c_rules:
-                check_atoms(c_rule.condition)
-                
+    def get_question(self) -> Question | None:
+        if len(self.facts.remaining_games) <= 1:
+            # Bypass looking for a question if a game has been determined
             return None
-        
-        def check_atoms(expr: dict) -> bool:
-            (operand, value), = expr.items()
 
-            if operand == "and":
-                print("found and")
-                for sub_expr in value:
-                    check_atoms(sub_expr)
-                return True
+        if self.cur_goal_aspect is None or self.cur_goal_aspect in self.facts.fact_known:
+            # Set new goal by inspecting remaining unknown aspects from the list of possible games
+            aspects = set()
+            for game in self.facts.remaining_games:
+                aspects.update(game.aspects)
 
-            if operand == "or":
-                print("found or")
-                for sub_expr in value:
-                    check_atoms(sub_expr)
-                return True
+            # Remove aspects that are already known
+            aspects = aspects - self.facts.fact_known
 
-            if operand == "fact":
-                print("Found fact: ", value)
-                value = value[:-1]
-                if value not in self.facts.fact_pos and value not in self.facts.fact_idc and value not in self.facts.fact_neg:
-                    identy_rules_and_questions(Aspect(str(value)))
-                return True
+            if aspects:
+                self.cur_goal_aspect = random.choice(list(aspects))
 
-            if operand == "aspect":
-                print("Found aspect: ", value)
-                value = value[:-1]
-                if value not in self.facts.aspects_pos and value not in self.facts.aspects_idc and value not in self.facts.aspects_neg:
-                    identy_rules_and_questions(Aspect(str(value)))
-                return True
-                
-        
-
-        if len(self.question_queue) > 0:
-            if self.cur_goal_aspect not in self.facts.aspects_pos and self.cur_goal_aspect not in self.facts.aspects_idc and self.cur_goal_aspect not in self.facts.aspects_neg:
-                return self.question_queue.pop(0)
+                if self.x == 0:
+                    self.cur_goal_aspect = Aspect("Visually impaired")
+                    self.x = 1
+                print(f"New goal: {self.cur_goal_aspect}")
             else:
-                self.question_queue = []
-            
-        self.games_left = self.get_games_left()
-        if len(self.games_left) <= 1:
-            return None
+                print(f"Exhausted all aspects")
+                return None
 
-        #Note, this is not equal to unproven aspects, its a set of aspects that the games leftover have.
-        all_aspects_left = []
-        for game in self.games_left:
-            for aspect in game.aspects:
-                if aspect not in all_aspects_left:
-                    all_aspects_left.append(aspect)
+        return self.find_next_question(self.cur_goal_aspect, set(), set())
 
-        # can be already proven, fix later
-        # IMPORTANT: will not terminate until lpgic is fixed (dont ask questions already asked)
-        goal_aspect = random.choice(all_aspects_left)
-        self.cur_goal_aspect = goal_aspect
-        
-        rules = identy_rules_and_questions(self.cur_goal_aspect)
-        check_rules(rules)
+    def find_next_question(self, target_fact: Fact|Aspect, inspected_rules: set[Rule], inspected_questions: set[Question]) -> Question | None:
+        self.cur_sub_goal = target_fact
 
-        # no question found, use random
-        if len(self.question_queue) <= 0:
-            print("check if weird behaviour")
-            return random.choice(questions)
-        return self.question_queue.pop(0)
+        # Check for a question that can directly answer the goal
+        for question in self.kb.questions:
+            for option in question.options:
+                for result in option.results:
+                    if result.name[:-1] == target_fact.name:
+                        return question
 
-    
-    def process_answer(self, option: Option) -> bool:
-        return self._fire_rules(option)
+        # Recursively check rules to find new target goal that can answer original goal
+        for rule in self.kb.rules:
+            for result in rule.results:
+                if result.name[:-1] == target_fact.name:
+                    # Infer new target by inspecting unknown rule conditions
+                    new_goal = self.find_goal_from_condition(rule.condition)
+                    if new_goal is None:
+                        break
 
-    def _fire_rules(self, option: Option) -> bool:
-        modified = False
-        for o in option.results:
-            option_type = o.type
-            option_value = o.value
-            if option_type == "add_aspect":
-                if option_value[-1] == "+":
-                    self.facts.aspects_pos.add(Aspect(option_value[:-1]))
-                elif option_value[-1] == "-":
-                    self.facts.aspects_neg.add(Aspect(option_value[:-1]))
-                elif option_value[-1] == "~":
-                    self.facts.aspects_idc.add(Aspect(option_value[:-1]))
-                modified = True
-            if option_type == "add_fact":
-                if option_value[-1] == "+":
-                    self.facts.fact_pos.add(Fact(option_value[:-1]))
-                elif option_value[-1] == "-":
-                    self.facts.fact_neg.add(Fact(option_value[:-1]))
-                elif option_value[-1] == "~":
-                    self.facts.fact_idc.add(Fact(option_value[:-1]))
-                modified = True
+                    print(f"New subgoal: {new_goal}")
 
-        if modified:
-            self.loop_rules()
+                    return self.find_next_question(new_goal, inspected_rules, inspected_questions)
 
-        return modified  
+        # Exhausted all options
+        print(f"Exhausted all questions")
+        return None
+
+    def find_goal_from_condition(self, condition: dict) -> Fact | None:
+        _ = self.evaluate_expr(condition)
+
+        return self.reason_unknown
+
+    def get_games_left(self) -> list[Game]:
+        out = {a.name for a in self.facts.fact_neg if type(a) is Aspect}
+        required = {a.name for a in self.facts.fact_pos if type(a) is Aspect}
+
+        matches: list[Game] = []
+        for game in self.facts.remaining_games:
+            append = True
+            for req in required:
+                if req not in [a.name for a in game.aspects]:
+                    print(f"> Game {game.name} Missing required aspect: {req}")
+                    append = False
+            for a in game.aspects:
+                if a.name in out:
+                    print(f"> Game {game.name} Has forbidden aspect: {a}")
+                    append = False
+                    break
+            if append:
+                matches.append(game)
+        self.facts.remaining_games = matches
+        return matches
+
+    def process_answer(self, option: Option):
+        for result in option.results:
+            print(f"Learned new fact: {result}")
+            self.facts.add_fact(result)
+
+        self.loop_rules()
 
     def loop_rules(self):
         modified = True
 
         while modified:
             modified = False
-            for rule in self.rules_left:
-                print("we are in loop func")
-                if self.evaluate_rule(rule):
-                    print("Yippiee")
-                    self.rules_left.remove(rule)
-                    modified = True
-                    for o in rule.results:
-                        option_type = o.type
-                        option_value = o.value
-                        if option_type == "add_aspect":
-                            if option_value[-1] == "+":
-                                self.facts.aspects_pos.add(Aspect(option_value[:-1]))
-                            elif option_value[-1] == "-":
-                                self.facts.aspects_neg.add(Aspect(option_value[:-1]))
-                            elif option_value[-1] == "~":
-                                self.facts.aspects_idc.add(Aspect(option_value[:-1]))
-                        if option_type == "add_fact":
-                            if option_value[-1] == "+":
-                                self.facts.fact_pos.add(Fact(option_value[:-1]))
-                            elif option_value[-1] == "-":
-                                self.facts.fact_neg.add(Fact(option_value[:-1]))
-                            elif option_value[-1] == "~":
-                                self.facts.fact_idc.add(Fact(option_value[:-1]))
+            for rule in self.facts.remaining_rules[:]:
+                truth = self.evaluate_expr(rule.condition)
 
-    def _split_range(self, range_str: str) -> tuple[int, int]:
-        part = range_str.split("-")
-        return (int(part[0]), int(part[1]))
 
-    # def _is_condition_satisfied(self, condition : Condition, all_aspects_left) -> bool:
-    #     if condition is None:
-    #         return True
+                if truth is not Truth.UNKNOWN:
+                    operand = "~"
+                    if truth is Truth.YES:
+                        operand = "+"
+                    elif truth is Truth.NO:
+                        operand = "-"
 
-    #     # Check for aspect
-    #     if condition.todo[-1] == "?":
-    #         aspect_name = condition.todo[:-1]
+                    for result in rule.results:
+                        if type(result) is Fact:
+                            result = Fact(result.name[:-1]+operand)
+                        else:
+                            result = Aspect(result.name[:-1]+operand)
 
-    #         if aspect_name not in all_aspects_left:
-    #             return False
+                        self.facts.add_fact(result)
+                        self.facts.remaining_rules.remove(rule)
+                        print(f"Inferred new fact: {result}")
+                        modified = True
+                        break
 
-    #         if aspect_name in [a.name for a in self.facts.aspects_pos]:
-    #             return False
-    #         if aspect_name in [a.name for a in self.facts.aspects_neg]:
-    #             return False
-    #         if aspect_name in [a.name for a in self.facts.aspects_idc]:
-    #             return False
-    #         return True
+    def evaluate_expr(self, expr: dict) -> Truth:
+        self.reason_unknown = None
+        return self.rec_evaluate_expr(expr)
 
-    #     return True
-
-    def get_games_left(self) -> list[Game]:
-        print("NEG: ",  self.facts.aspects_neg)
-        print("POS: ",  self.facts.aspects_pos)
-
-        print("NEG: ",  self.facts.fact_neg)
-        print("POS: ",  self.facts.fact_pos)
-
-        out = {a.name for a in self.facts.aspects_neg}
-        required  = {a.name for a in self.facts.aspects_pos}
-        matches: list[Game] = []
-        for game in self.games_left:
-            append = True
-            for req in required:
-                if req not in [a.name for a in game.aspects]:
-                    append = False
-            for a in game.aspects:
-                if a.name in out:
-                    append = False
-                    break
-            if append:
-                matches.append(game)
-        self.games_left = matches
-        return matches
-
-    def evaluate_rule(self, rule: Rule) -> bool:
-        return self.evaluate_expr(rule.condition)
-
-    def evaluate_expr(self, expr: dict) -> bool:
+    def rec_evaluate_expr(self, expr: dict) -> Truth:
         (operand, value), = expr.items()
 
-        print("operand", operand)
-        print("value", value)
-
+        generator = (self.rec_evaluate_expr(sub_expr) for sub_expr in value)
         if operand == "and":
-            sum_bool = 0
-            for sub_expr in value:
-                sum_bool += self.evaluate_expr(sub_expr)
-            print(sum_bool, len(value))
-            return sum_bool == len(value)
-            return all(self.evaluate_expr(sub_expr) for sub_expr in value)
+            temp = self.reason_unknown
+            self.reason_unknown = None
+            truth = self.evaluate_all(generator)
+            if truth is not Truth.UNKNOWN:
+                self.reason_unknown = temp
+
+            return truth
 
         if operand == "or":
-            sum_bool = 0
-            for sub_expr in value:
-                sum_bool += self.evaluate_expr(sub_expr)
-            print(sum_bool)
-            return sum_bool >= 1
+            temp = self.reason_unknown
+            self.reason_unknown = None
+            truth = self.evaluate_any(generator)
+            if truth is not Truth.UNKNOWN:
+                self.reason_unknown = temp
+
+            return truth
+
+        fact = None
 
         if operand == "fact":
-            return Fact(str(value[:-1])) in self.facts.fact_pos
-
+            fact = Fact(str(value[:-1]))
         if operand == "aspect":
-            return Aspect(str(value[:-1])) in self.facts.aspects_pos # in idc too I think
+            fact = Aspect(str(value[:-1]))
 
-        raise Exception(f"Unknown operand {operand}")
+        if fact is None:
+            raise Exception(f"Unknown operand {operand}")
+
+        inverted = True if str(value[-1]) == "-" else False
+        if fact in self.facts.fact_pos:
+            return Truth.NO if inverted else Truth.YES
+        elif fact in self.facts.fact_neg:
+            return Truth.YES if inverted else Truth.NO
+        elif fact in self.facts.fact_idc:
+            return Truth.IDC
+        else:
+            if self.reason_unknown is None:
+                self.reason_unknown = fact
+            return Truth.UNKNOWN
+
+    def evaluate_all(self, iterable) -> Truth:
+        # It behaves in this order:
+        # Any NO results in NO           [_ _ -] => -
+        # Any UNKNOWN results in UNKNOWN [_ _ ?] => ?
+        # IDC leans towards YES          [+ ~ ~] => +
+        # Unless all are IDC             [~ ~ ~] => ~
+
+        any_unknown = False
+        any_pos = False
+        for x in iterable:
+            if x is Truth.NO:
+                return Truth.NO
+            elif x is Truth.UNKNOWN:
+                any_unknown = True
+            elif x is Truth.YES:
+                any_pos = True
+
+        return Truth.UNKNOWN if any_unknown\
+            else Truth.YES if any_pos else Truth.IDC
+
+    def evaluate_any(self, iterable) -> Truth:
+        # It behaves in this order:
+        # Any YES results in YES         [_ _ +] => +
+        # Any UNKNOWN results in UNKNOWN [_ _ ?] => ?
+        # IDC leans towards NO           [- ~ ~] => -
+        # Unless all are IDC             [~ ~ ~] => ~
+
+        any_unknown = False
+        any_neg = False
+        for x in iterable:
+            if x is Truth.YES:
+                return Truth.YES
+            elif x is Truth.UNKNOWN:
+                any_unknown = True
+            elif x is Truth.NO:
+                any_neg = True
+
+        return Truth.UNKNOWN if any_unknown \
+            else Truth.NO if any_neg else Truth.IDC

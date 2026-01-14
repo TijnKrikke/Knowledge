@@ -68,7 +68,7 @@ rules:
       grandparents. They do not have many rules that need to be learned.
     condition:
       and:
-        - aspect: "Mature-"
+        - fact: "Explicit-"
         - fact: "Many rules-"
     results:
       - aspect: "Family+"
@@ -150,8 +150,8 @@ rules:
       other players in order to succeed.
     condition:
       and:
-        - fact: "Exchange resources+"
         - fact: "Communication+"
+        - fact: "Exchange resources+"
     results:
       - aspect: "Trading+"
 
@@ -210,7 +210,7 @@ rules:
         - fact: "Options change+"
         - fact: "Deck building+"
     results:
-      - aspect: "Deck builder+"
+      - aspect: "Deck Builder+"
 
   - description: >
       Interactive games will limit your options based on the choices your
@@ -283,10 +283,9 @@ rules:
       Unsuitable for younger audiences, due to scary, explicit, violent
       or controversial themes.
     condition:
-      or:
+      and:
         - fact: "Explicit+"
         - fact: "Controversial+"
-        - fact: "Violent+"
     results:
       - aspect: "Mature+"
 
@@ -297,8 +296,8 @@ rules:
       Usually complex, but you do not need to know all the rules to play.
     condition:
       and:
-        - fact: "Own playstyle+"
         - fact: "Many rules+"
+        - fact: "Own playstyle+"
     results:
       - aspect: "Personal Touch+"
 
@@ -372,6 +371,7 @@ rules:
       of specific areas.
     condition:
       and:
+        - fact: "Memorization+"
         - fact: "Knowledge+"
     results:
       - aspect: "Trivia+"
@@ -407,6 +407,30 @@ rules:
       There is a physical component to this game
     condition:
       and:
-        - fact: "Physical impaired-"
+        - fact: "Physical activity+"
     results:
       - aspect: "Physical+"
+
+  - description: >
+      If a game has a strong audio component, these might be unsuitable for some
+    condition:
+      and:
+        - fact: "Requires audio+"
+    results:
+      - aspect: "Audio+"
+
+  - description: >
+      Some games take extra effort so that you can discern colours easier
+    condition:
+      and:
+        - fact: "Discern Colour+"
+    results:
+      - aspect: "Visually impaired+"
+
+  - description: >
+      Some games heavily lean on coloured pieces or cards to play the game
+    condition:
+      and:
+        - fact: "Colour required+"
+    results:
+      - aspect: "Colour+"

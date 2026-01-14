@@ -2,7 +2,7 @@ import yaml
 import os
 from typing import Optional
 
-from model import KB, Question, Option, Result, Condition, Game, Aspect, Rule
+from model import KB, Question, Option, Game, Aspect, Rule, Fact
 
 
 def load_kb(games_path: Optional[str] = None, questions_path: Optional[str] = None, rules_path: Optional[str] = None) -> KB:
@@ -26,26 +26,30 @@ def load_kb(games_path: Optional[str] = None, questions_path: Optional[str] = No
         for o in question.get("options", []):
             results = []
             for r in o.get("results", []):
-                results.append(Result(type=r.get("type"), value=r.get("value")))
+                results.append(Fact(r.get("fact")))
             options.append(Option(text=o.get("text"), results=results))
 
-        condition = None
-        if question.get("condition") is not None:
-            condition_obj = question.get("condition")
-            condition = Condition(todo=str(condition_obj))
-
-        questions.append(Question(text=question.get("text"), options=options, condition=condition))
+        questions.append(Question(text=question.get("text"), options=options))
 
     rules = []
     for rule in rules_data.get("rules", []):
+        description = rule.get("description")
+        condition = rule.get("condition")
+
         results = []
         for r in rule.get("results", []):
-            results.append(Result(type=r.get("type"), value=r.get("value")))
+            (operand, value), = r.items()
+            if operand == "aspect":
+                results.append(Aspect(name=value))
+            elif operand == "fact":
+                results.append(Fact(name=value))
+            else:
+                raise Exception(f"Unknown operand ({operand}) when parsing rule ({description})")
 
         rules.append(
             Rule(
-                description=rule.get("description"),
-                condition=rule.get("condition"),
+                description=description,
+                condition=condition,
                 results=results
             )
         )

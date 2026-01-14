@@ -1,689 +1,715 @@
 questions:
-  - text: "Do you enjoy games where u can lie?"
-    condition: "Allows Lying?"
+  - text: >
+      Do you want the game to be visually appealing?
     options:
-      - text: "Yes"
+      - text: "Yes, I want my game to have this"
         results:
-          - type: "add_fact"
-            value: "Allows Lying+"
-      - text: "I don't care"
+          - fact: "Visual appeal+"
+      - text: "Neutral"
         results:
-          - type: "add_fact"
-            value: "Allows Lying~"
-      - text: "No"
-        results:
-          - type: "add_fact"
-            value: "Allows Lying-"
+          - fact: "Visual appeal~"
+      # The no option makes little sense here
 
-  - text: "Hide info?"
-    condition: "Hidden Information?"
+  - text: >
+      Is it okay if the game is more expensive than an average game?
     options:
-      - text: "Yes"
+      - text: "Yes, this is okay"
         results:
-          - type: "add_fact"
-            value: "Hidden Information+"
-      - text: "I don't care"
+          - fact: "Expensive+"
+      - text: "Neutral"
         results:
-          - type: "add_fact"
-            value: "Hidden Information~"
-      - text: "No"
+          - fact: "Expensive~"
+      - text: "No, I do not want this"
         results:
-          - type: "add_fact"
-            value: "Hidden Information-"
+          - fact: "Expensive-"
 
-
-  - text: "Do you want a social experience?"
-    condition: "Social?"
+  - text: >
+      Do you like limited or special editions of games?
     options:
-      - text: "Yes"
+      - text: "Yes, I like this"
         results:
-          - type: "add_aspect"
-            value: "Social+"
-      - text: "I don't care"
+          - fact: "Limited Editions+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Social~"
-      - text: "No"
+          - fact: "Limited Editions~"
+      - text: "No, I do not want this"
         results:
-          - type: "add_aspect"
-            value: "Social-"
+          - fact: "Limited Editions-"
 
-  - text: "Do you prefer a complex game?"
-    condition: "Complex?"
+  - text: >
+      Some games feature so-called expansion sets.
+      These are sold separately and will add new rules to the game.
+      Would you be interested in this?
     options:
-      - text: "Yes"
+      - text: "Yes, I like this"
         results:
-          - type: "add_aspect"
-            value: "Complex+"
-      - text: "I don't care"
+          - fact: "Expansions+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Complex~"
-      - text: "No"
+          - fact: "Expansions~"
+      - text: "No, I do not want this"
         results:
-          - type: "add_aspect"
-            value: "Complex-"
+          - fact: "Expansions-"
 
-  - text: "Should the game be accessible for visually impaired players?"
-    condition: "Visually impaired?"
+  - text: >
+      There are games that allow you to "attack" your opponents, harming their position.
+      You might capture some pieces or steal their cards.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to show my dominance"
         results:
-          - type: "add_aspect"
-            value: "Visually impaired+"
-      - text: "I don't care"
+          - fact: "Attack opponents+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Visually impaired~"
-      - text: "No"
+          - fact: "Attack opponents~"
+      - text: "No, I do not want to be attacked directly, this ruins the fun"
         results:
-          - type: "add_aspect"
-            value: "Visually impaired-"
+          - fact: "Attack opponents-"
 
-  - text: "Do you want an app-based experience?"
-    condition: "App?"
+  - text: >
+      Some games will determine a winner by elimination.
+      Players can be defeated and will be removed from the game.
+      They might need to wait out while the others continue playing.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to show my dominance"
         results:
-          - type: "add_aspect"
-            value: "App+"
-      - text: "I don't care"
+          - fact: "Elimination+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "App~"
-      - text: "No"
+          - fact: "Elimination~"
+      - text: "No, I want to keep playing until the very end. The winner should be decided when we stop playing."
         results:
-          - type: "add_aspect"
-            value: "App-"
+          - fact: "Elimination-"
 
-  - text: "Should the game include audio features?"
-    condition: "Audio?"
+  - text: >
+      What if you could play a game that, instead of competing,
+      asks you to work together against a common enemy?
     options:
-      - text: "Yes"
+      - text: "Yes, this seems like fun"
         results:
-          - type: "add_aspect"
-            value: "Audio+"
-      - text: "I don't care"
+          - fact: "Work together+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Audio~"
-      - text: "No"
+          - fact: "Work together~"
+      - text: "No, I want to play by myself and not have to coordinate with others."
         results:
-          - type: "add_aspect"
-            value: "Audio-"
+          - fact: "Work together-"
 
-  - text: "Do you want an asymmetric play style?"
-    condition: "Asymmetric?"
+  - text: >
+      Is having fun more important than winning?
     options:
-      - text: "Yes"
+      - text: "Yes, I'm not super good at games so I mostly play for fun"
         results:
-          - type: "add_aspect"
-            value: "Asymmetric+"
-      - text: "I don't care"
+          - fact: "Fun > Winning+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Asymmetric~"
-      - text: "No"
+          - fact: "Fun > Winning~"
+      - text: "No, I like winning and get really excited when I come out on top."
         results:
-          - type: "add_aspect"
-            value: "Asymmetric-"
+          - fact: "Fun > Winning-"
 
-  # - text: "Do you enjoy bluffing mechanics?"
-  #   condition: "Bluffing?"
-  #   options:
-  #     - text: "Yes"
-  #       results:
-  #         - type: "add_aspect"
-  #           value: "Bluffing+"
-  #     - text: "I don't care"
-  #       results:
-  #         - type: "add_aspect"
-  #           value: "Bluffing~"
-  #     - text: "No"
-  #       results:
-  #         - type: "add_aspect"
-  #           value: "Bluffing-"
-
-  - text: "Do you prefer classic/traditional games?"
-    condition: "Classic?"
+  - text: >
+      Do you want to have a game that is completely stress-free?
     options:
-      - text: "Yes"
+      - text: "Yes, I want to play a game that I can play when I'm feeling rough, that will lighten my mood"
         results:
-          - type: "add_aspect"
-            value: "Classic+"
-      - text: "I don't care"
+          - fact: "Stress free+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Classic~"
-      - text: "No"
+          - fact: "Stress free~"
+      - text: "No, I like to see action and am a bit of a thrill-seeker."
         results:
-          - type: "add_aspect"
-            value: "Classic-"
+          - fact: "Stress free-"
 
-  - text: "Do you want a cozy experience?"
-    condition: "Cozy?"
+  - text: >
+      There are games that allow you to betray others, by coming back on your words.
+      These games specifically have this as an important element.
+      Betraying others will be required to win the game.
     options:
-      - text: "Yes"
+      - text: "Yes, I love politics. Me and my friends know that this is just a game"
         results:
-          - type: "add_aspect"
-            value: "Cozy+"
-      - text: "I don't care"
+          - fact: "Betrayal+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Cozy~"
-      - text: "No"
+          - fact: "Betrayal~"
+      - text: "No, I do not think this is fun at all."
         results:
-          - type: "add_aspect"
-            value: "Cozy-"
+          - fact: "Betrayal-"
 
-  - text: "Do you care about colour-based mechanics?"
-    condition: "Colour?"
+  - text: >
+      Some games come with many rules.
+      Explaining these games might take a while and you will not really know what to do straight away.
+      Part of the fun is learning what good and bad options are.
     options:
-      - text: "Yes"
+      - text: "Yes, I love games that challenge my brain"
         results:
-          - type: "add_aspect"
-            value: "Colour+"
-      - text: "I don't care"
+          - fact: "Many rules+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Colour~"
-      - text: "No"
+          - fact: "Many rules~"
+      - text: "No, I will get confused and will not enjoy this"
         results:
-          - type: "add_aspect"
-            value: "Colour-"
+          - fact: "Many rules-"
 
-  - text: "Do you like competitive games?"
-    condition: "Competitive?"
+  - text: >
+      Do you want your game to be available for large groups?
+      That is, for 7 or more players?
     options:
-      - text: "Yes"
+      - text: "Yes, totally"
         results:
-          - type: "add_aspect"
-            value: "Competitive+"
-      - text: "I don't care"
+          - fact: "Large groups+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Competitive~"
-      - text: "No"
+          - fact: "Large groups~"
+      - text: "No, I like to play with a few players only"
         results:
-          - type: "add_aspect"
-            value: "Competitive-"
+          - fact: "Large groups-"
 
-  - text: "Do you want collectible elements?"
-    condition: "Collector?"
+  - text: >
+      In some games you will need to look out for specific opportunities.
+      You have to carefully decide whether this is the moment to act.
+      Sometimes it is better not to act, or take a turn of.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to weight my options"
         results:
-          - type: "add_aspect"
-            value: "Collector+"
-      - text: "I don't care"
+          - fact: "Opportunities+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Collector~"
-      - text: "No"
+          - fact: "Opportunities~"
+      - text: "No, I want my game to be straightforward"
         results:
-          - type: "add_aspect"
-            value: "Collector-"
+          - fact: "Opportunities-"
 
-  - text: "Do you like deck-building mechanics?"
-    condition: "Deck Builder?"
+  - text: >
+      Do you love it when a plan comes together?
+      Sometimes games ask you to take a bit of a gamble that might not work out as expected.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to hit it big or fail spectacularly"
         results:
-          - type: "add_aspect"
-            value: "Deck Builder+"
-      - text: "I don't care"
+          - fact: "Risky moves+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Deck Builder~"
-      - text: "No"
+          - fact: "Risky moves~"
+      - text: "No, I don't like this"
         results:
-          - type: "add_aspect"
-            value: "Deck Builder-"
+          - fact: "Risky moves-"
 
-  - text: "Do you want deduction mechanics?"
-    condition: "Deduction?"
+  - text: >
+      Some games specifically allow you to lie about certain facts.
+      Not telling the truth is required to win and have fun.
     options:
-      - text: "Yes"
+      - text: "Yes, I like a bit of deceit"
         results:
-          - type: "add_aspect"
-            value: "Deduction+"
-      - text: "I don't care"
+          - fact: "Allows Lying+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Deduction~"
-      - text: "No"
+          - fact: "Allows Lying~"
+      - text: "No, I am an open book. I could never play this"
         results:
-          - type: "add_aspect"
-            value: "Deduction-"
+          - fact: "Allows Lying-"
 
-  - text: "Do you prefer deterministic gameplay?"
-    condition: "Deterministic?"
+  - text: >
+      Do you want the game to rely on hidden information?
     options:
-      - text: "Yes"
+      - text: "Yes, I like to keep secrets from my opponents"
         results:
-          - type: "add_aspect"
-            value: "Deterministic+"
-      - text: "I don't care"
+          - fact: "Hidden Information+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Deterministic~"
-      - text: "No"
+          - fact: "Hidden Information~"
+      - text: "No, I want everything to be out in the open"
         results:
-          - type: "add_aspect"
-            value: "Deterministic-"
+          - fact: "Hidden Information-"
 
-  - text: "Do you want dynamic gameplay?"
-    condition: "Dynamic?"
+  - text: >
+      Some games really drag you into it. This can be through a captivating story,
+      that makes you want to fall into character and pretend you are someone else.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to really immerse myself into a game"
         results:
-          - type: "add_aspect"
-            value: "Dynamic+"
-      - text: "I don't care"
+          - fact: "Immersion+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Dynamic~"
-      - text: "No"
+          - fact: "Immersion~"
+      - text: "No, I just want to play a straightforward game"
         results:
-          - type: "add_aspect"
-            value: "Dynamic-"
+          - fact: "Immersion-"
 
-  - text: "Do you want an easy-to-learn game?"
-    condition: "Easy?"
+  - text: >
+      There is always a bit of talking involved in most games, but some games specifically
+      require you actively communicate with others to play and enjoy it.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to talk and listen and base my actions on what I hear"
         results:
-          - type: "add_aspect"
-            value: "Easy+"
-      - text: "I don't care"
+          - fact: "Communication+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Easy~"
-      - text: "No"
+          - fact: "Communication~"
+      - text: "No, I am a rather quiet person, and feel like I will be left out"
         results:
-          - type: "add_aspect"
-            value: "Easy-"
+          - fact: "Communication-"
 
-  - text: "Do you prefer eurogame mechanics?"
-    condition: "Eurogame?"
+  - text: >
+      Some games ask you to be on the same wave-length as others.
+      Either because you already know them very well, or you would like to learn them.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to play a game that incorporates this idea"
         results:
-          - type: "add_aspect"
-            value: "Eurogame+"
-      - text: "I don't care"
+          - fact: "Connection+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Eurogame~"
-      - text: "No"
+          - fact: "Connection~"
+      - text: "No, I am bad at reading people"
         results:
-          - type: "add_aspect"
-            value: "Eurogame-"
+          - fact: "Connection-"
 
-  - text: "Do you want a family-friendly game?"
-    condition: "Family?"
+  - text: >
+      Do you like to haggle for the best deal?
+      Some games need you to trade cards or tokens with others in order to succeed.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to play a game that unlocks my inner merchant"
         results:
-          - type: "add_aspect"
-            value: "Family+"
-      - text: "I don't care"
+          - fact: "Exchange resources+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Family~"
-      - text: "No"
+          - fact: "Exchange resources~"
+      - text: "No, I do not want to evaluate deals and see if this is good for me"
         results:
-          - type: "add_aspect"
-            value: "Family-"
+          - fact: "Exchange resources-"
 
-  - text: "Do you want interactive elements?"
-    condition: "Interactive?"
+  - text: >
+      What if you could promise future rewards, if your opponents act in a certain way?
+      Some games specifically allow you to trade favours that can be cashed in later.
     options:
-      - text: "Yes"
+      - text: "Yes, I like a bit of diplomacy"
         results:
-          - type: "add_aspect"
-            value: "Interactive+"
-      - text: "I don't care"
+          - fact: "Favours+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Interactive~"
-      - text: "No"
+          - fact: "Favours~"
+      - text: "No, I want exchanges to happen in the same turn"
         results:
-          - type: "add_aspect"
-            value: "Interactive-"
+          - fact: "Favours-"
 
-  - text: "Do you like games that depend on luck?"
-    condition: "Luck?"
+  - text: >
+      Who are your friends, and who are your enemies?
+      At the start of the game you might not know this.
+      Through careful deduction, you have to figure out who you can trust
     options:
-      - text: "Yes"
+      - text: "Yes, exciting!"
         results:
-          - type: "add_aspect"
-            value: "Luck+"
-      - text: "I don't care"
+          - fact: "Deduction+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Luck~"
-      - text: "No"
+          - fact: "Deduction~"
+      - text: "No, I do not like this"
         results:
-          - type: "add_aspect"
-            value: "Luck-"
+          - fact: "Deduction-"
 
-  - text: "Do you want mature elements?"
-    condition: "Mature?"
+  - text: >
+      Some games will introduce new options and rules while you are playing.
     options:
-      - text: "Yes"
+      - text: "Yes, I like it when I constantly have to adapt"
         results:
-          - type: "add_aspect"
-            value: "Mature+"
-      - text: "I don't care"
+          - fact: "Options change+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Mature~"
-      - text: "No"
+          - fact: "Options change~"
+      - text: "No, I do not want my game to have this"
         results:
-          - type: "add_aspect"
-            value: "Mature-"
+          - fact: "Options change-"
 
-  - text: "Do you prefer a personal-touch/legacy feel?"
-    condition: "Personal Touch?"
+  - text: >
+      In some games, you can change the rules for yourself by collecting specific cards.
+      This is an iterative process that allows you to customize the way you play.
+      Every game will likely be different.
     options:
-      - text: "Yes"
+      - text: "Yes, I want to customize the rules as I play"
         results:
-          - type: "add_aspect"
-            value: "Personal Touch+"
-      - text: "I don't care"
+          - fact: "Deck building+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Personal Touch~"
-      - text: "No"
+          - fact: "Deck building~"
+      - text: "No, I do not want my game to have this"
         results:
-          - type: "add_aspect"
-            value: "Personal Touch-"
+          - fact: "Deck building-"
 
-  - text: "Do you want physical components/mechanics?"
-    condition: "Physical?"
+  - text: >
+      Sometimes, your opponents will limit the options you have available.
+      This can be by occupying certain spots,
+      or by taking the good cards before you get a chance to acquire them.
     options:
-      - text: "Yes"
+      - text: "Yes, I want to snatch away prizes, denying them from others"
         results:
-          - type: "add_aspect"
-            value: "Physical+"
-      - text: "I don't care"
+          - fact: "Interaction+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Physical~"
-      - text: "No"
+          - fact: "Interaction~"
+      - text: "No, I do not like it when other can take something before I have the chance"
         results:
-          - type: "add_aspect"
-            value: "Physical-"
+          - fact: "Interaction-"
 
-  - text: "Do you care about promises/negotiation mechanics?"
-    condition: "Promises?"
+  - text: >
+      What if not everyone has the same goal to win the game?
+      Some players might win by surprise, because you did not realize they were trying
+      to accomplish something.
     options:
-      - text: "Yes"
+      - text: "Yes, I want to scheme and hide my true goal from others"
         results:
-          - type: "add_aspect"
-            value: "Promises+"
-      - text: "I don't care"
+          - fact: "Asymmetry+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Promises~"
-      - text: "No"
+          - fact: "Asymmetry~"
+      - text: "No, I want everyone to work for the same objective"
         results:
-          - type: "add_aspect"
-            value: "Promises-"
+          - fact: "Asymmetry-"
 
-  - text: "Do you want puzzle mechanics?"
-    condition: "Puzzle?"
+  - text: >
+      Some games are genre defining. They can claim to be the "original".
+      They withstood the test of time and most people that like this type of game
+      will have heard about it.
     options:
-      - text: "Yes"
+      - text: "Yes, I want my game to be somewhat known, so that others recognize it"
         results:
-          - type: "add_aspect"
-            value: "Puzzle+"
-      - text: "I don't care"
+          - fact: "Genre defining+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Puzzle~"
-      - text: "No"
+          - fact: "Genre defining~"
+      - text: "No, I want to have something unique"
         results:
-          - type: "add_aspect"
-            value: "Puzzle-"
+          - fact: "Genre defining-"
 
-  - text: "Do you prefer reactive gameplay?"
-    condition: "Reactive?"
+  - text: >
+      Some games require you to play it multiple times, before you realize what you need to do.
+      These games can be confusing at first, but they will grow on you when you discover all the options.
     options:
-      - text: "Yes"
+      - text: "Yes, I want be able to play a game multiple times and discover new things"
         results:
-          - type: "add_aspect"
-            value: "Reactive+"
-      - text: "I don't care"
+          - fact: "Multiple plays+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Reactive~"
-      - text: "No"
+          - fact: "Multiple plays~"
+      - text: "No, I want to know what a game is about the first time I play it"
         results:
-          - type: "add_aspect"
-            value: "Reactive-"
+          - fact: "Multiple plays-"
 
-  - text: "Do you want resource-management mechanics?"
-    condition: "Resource?"
+  - text: >
+      Would it be good if you can explain the game in 5 minutes?
     options:
-      - text: "Yes"
+      - text: "Yes, I have a short attention span. Get me to the action"
         results:
-          - type: "add_aspect"
-            value: "Resource+"
-      - text: "I don't care"
+          - fact: "Short explanation+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Resource~"
-      - text: "No"
+          - fact: "Short explanation~"
+      - text: "No, I want a game that is a bit deeper"
         results:
-          - type: "add_aspect"
-            value: "Resource-"
+          - fact: "Short explanation-"
 
-  - text: "Do you like risk-taking mechanics?"
-    condition: "Risk taking?"
+  - text: >
+      Do you like to play games that involve rolling dice, that largely determines
+      whether you will win or not?
     options:
-      - text: "Yes"
+      - text: "Yes, I want my game to be like this"
         results:
-          - type: "add_aspect"
-            value: "Risk taking+"
-      - text: "I don't care"
+          - fact: "Die rolls+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Risk taking~"
-      - text: "No"
+          - fact: "Die rolls~"
+      - text: "No, I do not like gambling"
         results:
-          - type: "add_aspect"
-            value: "Risk taking-"
+          - fact: "Die rolls-"
 
-  - text: "Do you want solo play options?"
-    condition: "Solo?"
+  - text: >
+      What do you think about randomness heavily influencing the outcome of your choices?
+      This is not always a bad thing, as it can level the playing field between good and bad players.
     options:
-      - text: "Yes"
+      - text: "Yes, I want to level the playing field"
         results:
-          - type: "add_aspect"
-            value: "Solo+"
-      - text: "I don't care"
+          - fact: "Randomness+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Solo~"
-      - text: "No"
+          - fact: "Randomness~"
+      - text: "No, I want my choices to matter"
         results:
-          - type: "add_aspect"
-            value: "Solo-"
+          - fact: "Randomness-"
 
-  - text: "Do you prefer strategic gameplay?"
-    condition: "Strategy?"
+  - text: >
+      Can your game contain explicit themes or vulgar words?
     options:
-      - text: "Yes"
+      - text: "Yes, I enjoy this type of thing"
         results:
-          - type: "add_aspect"
-            value: "Strategy+"
-      - text: "I don't care"
+          - fact: "Explicit+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Strategy~"
-      - text: "No"
+          - fact: "Explicit~"
+      - text: "No, this is unsuitable"
         results:
-          - type: "add_aspect"
-            value: "Strategy-"
+          - fact: "Explicit-"
 
-  - text: "Do you want storytelling elements?"
-    condition: "Storytelling?"
+  - text: >
+      What about controversial subjects, such as extreme politics, violence or racism?
     options:
-      - text: "Yes"
+      - text: "Yes, I like games with dark subjects"
         results:
-          - type: "add_aspect"
-            value: "Storytelling+"
-      - text: "I don't care"
+          - fact: "Controversial+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Storytelling~"
-      - text: "No"
+          - fact: "Controversial~"
+      - text: "No, this can not be in the game"
         results:
-          - type: "add_aspect"
-            value: "Storytelling-"
+          - fact: "Controversial-"
 
-  - text: "Do you want thematic elements?"
-    condition: "Thematic?"
+  - text: >
+      What about games that ?
     options:
-      - text: "Yes"
+      - text: "Yes, I like games with dark subjects"
         results:
-          - type: "add_aspect"
-            value: "Thematic+"
-      - text: "I don't care"
+          - fact: "Controversial+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Thematic~"
-      - text: "No"
+          - fact: "Controversial~"
+      - text: "No, this can not be in the game"
         results:
-          - type: "add_aspect"
-            value: "Thematic-"
+          - fact: "Controversial-"
 
-  - text: "Do you want trading mechanics?"
-    condition: "Trading?"
+  - text: >
+      Do you like to adapt the game to your own playstyle?
+      What if you can alter the way you play from game to game?
+      These playstyles can also be radically different for all players in a single game.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to tweak and tinker"
         results:
-          - type: "add_aspect"
-            value: "Trading+"
-      - text: "I don't care"
+          - fact: "Own playstyle+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Trading~"
-      - text: "No"
+          - fact: "Own playstyle~"
+      - text: "No, this doesn't sound like my kind of game at all"
         results:
-          - type: "add_aspect"
-            value: "Trading-"
+          - fact: "Own playstyle-"
 
-  - text: "Do you enjoy trivia elements?"
-    condition: "Trivia?"
+  - text: >
+      Do you like to show your mental dexterity?
+      These games have no turns, so you need to think and act quick.
     options:
-      - text: "Yes"
+      - text: "Yes, I want my game to have this"
         results:
-          - type: "add_aspect"
-            value: "Trivia+"
-      - text: "I don't care"
+          - fact: "Reaction speed+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Trivia~"
-      - text: "No"
+          - fact: "Reaction speed~"
+      - text: "No, I like to carefully plan my moves"
         results:
-          - type: "add_aspect"
-            value: "Trivia-"
+          - fact: "Reaction speed-"
 
-  - text: "Do you care about vibes/atmosphere?"
-    condition: "Vibes?"
+  - text: >
+      Do you like to collect and keep track of all kinds of different resources in a game?
+      Count your money and supplies carefully or you might not be able to afford your next play.
     options:
-      - text: "Yes"
+      - text: "Yes, I love it when games have this"
         results:
-          - type: "add_aspect"
-            value: "Vibes+"
-      - text: "I don't care"
+          - fact: "Collect resources+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Vibes~"
-      - text: "No"
+          - fact: "Collect resources~"
+      - text: "No, I do not want to keep track of many things"
         results:
-          - type: "add_aspect"
-            value: "Vibes-"
+          - fact: "Collect resources-"
 
-  - text: "Do you like whimsical/quirky games?"
-    condition: "Whimsy?"
+  - text: >
+      Do you sometimes want to play a game just by yourself?
     options:
-      - text: "Yes"
+      - text: "Yes, sometimes I do not have someone to play with"
         results:
-          - type: "add_aspect"
-            value: "Whimsy+"
-      - text: "I don't care"
+          - fact: "Solo playable+"
+      - text: "I do not mind if a game has this option"
         results:
-          - type: "add_aspect"
-            value: "Whimsy~"
-      - text: "No"
+          - fact: "Solo playable~"
+      - text: "No, I will never play a game by myself"
         results:
-          - type: "add_aspect"
-            value: "Whimsy-"
+          - fact: "Solo playable-"
 
-  - text: "Do you want travel-friendly games?"
-    condition: "Travel?"
+  - text: >
+      Do you like games that require you to carefully plan ahead?
+      You have to be able to anticipate what comes next, or you will not enjoy this.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to think two steps ahead of my opponent"
         results:
-          - type: "add_aspect"
-            value: "Travel+"
-      - text: "I don't care"
+          - fact: "Requires planning+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Travel~"
-      - text: "No"
+          - fact: "Requires planning~"
+      - text: "No, I want to only think about the current move"
         results:
-          - type: "add_aspect"
-            value: "Travel-"
+          - fact: "Requires planning-"
 
-  - text: "Do you want collector mechanics?"
-    condition: "Collector?"
+  - text: >
+      There are games based around a very specific theme or concept.
+      They are enjoyable because you like the setting, theme or lore.
     options:
-      - text: "Yes"
+      - text: "Yes, I like to dream away to a different world"
         results:
-          - type: "add_aspect"
-            value: "Collector+"
-      - text: "I don't care"
+          - fact: "Strong theme+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Collector~"
-      - text: "No"
+          - fact: "Strong theme~"
+      - text: "I do not really care about such things"
         results:
-          - type: "add_aspect"
-            value: "Collector-"
+          - fact: "Strong theme-"
 
-  - text: "Do you prefer cooperative play?"
-    condition: "Cooperative?"
+  - text: >
+      Does your game need to be small in size?
     options:
-      - text: "Yes"
+      - text: "Yes, it should fit into my bagpack with ease"
         results:
-          - type: "add_aspect"
-            value: "Cooperative+"
-      - text: "I don't care"
+          - fact: "Compact+"
+      - text: "Neutral"
         results:
-          - type: "add_aspect"
-            value: "Cooperative~"
-      - text: "No"
+          - fact: "Compact~"
+      - text: "No, I like to have a large board and lots of pieces"
         results:
-          - type: "add_aspect"
-            value: "Cooperative-"
+          - fact: "Compact-"
 
-  - text: "Do you want colour-based mechanics?"
-    condition: "Colour?"
+  - text: >
+      Should the game be easy to carry?
     options:
-      - text: "Yes"
+      - text: "Yes, I want to bring it with me all the time"
         results:
-          - type: "add_aspect"
-            value: "Colour+"
-      - text: "I don't care"
+          - fact: "Light weight+"
+      - text: "This is not necessary"
         results:
-          - type: "add_aspect"
-            value: "Colour~"
-      - text: "No"
+          - fact: "Light weight~"
+
+  - text: >
+      Not all games are equally serious,
+      but there are games that have concepts that make little sense.
+      Sometimes there are bizarre rules and this is part of the fun.
+    options:
+      - text: "Yes, I am totally into this"
         results:
-          - type: "add_aspect"
-            value: "Colour-"
+          - fact: "Serious-"
+      - text: "Neutral"
+        results:
+          - fact: "Serious~"
+      - text: "No, want my game to be serious"
+        results:
+          - fact: "Serious+"
+
+  - text: >
+      Some games will test your knowledge of certain facts.
+      These facts can come from everyday life.
+    options:
+      - text: "Yes, I love memorizing facts"
+        results:
+          - fact: "Knowledge+"
+      - text: "Neutral"
+        results:
+          - fact: "Knowledge~"
+      - text: "No, I do not want to test my knowledge"
+        results:
+          - fact: "Knowledge-"
+
+  - text: >
+      Do you like to look at patterns and see what fits best?
+    options:
+      - text: "Yes, I love this"
+        results:
+          - fact: "Find patterns+"
+      - text: "Neutral"
+        results:
+          - fact: "Find patterns~"
+      - text: "No, I don't have good spatial memory"
+        results:
+          - fact: "Find patterns-"
+
+  - text: >
+      Do you enjoy having to remember lots of (small) details?
+    options:
+      - text: "Yes, I want my game to habe this"
+        results:
+          - fact: "Memorization+"
+      - text: "Neutral"
+        results:
+          - fact: "Memorization~"
+      - text: "No, I don't want this in my game"
+        results:
+          - fact: "Memorization-"
+
+  - text: >
+      Is it okay if you can play the game only once?
+      The game might reveal some big secret as you finish playing it.
+    options:
+      - text: "Yes, this could be fun. I will maybe share or sell my game later"
+        results:
+          - fact: "Memorization+"
+      - text: "Neutral"
+        results:
+          - fact: "Memorization~"
+      - text: "No, I want to be able to play it more often"
+        results:
+          - fact: "Memorization-"
+
+  - text: >
+      There are games that can not be played without having an app installed your phone.
+      Is this a problem?
+    options:
+      - text: "This is okay"
+        results:
+          - fact: "App required~"
+      - text: "This is a problem, I do not want to have to use an app"
+        results:
+          - fact: "App required-"
+
+  - text: >
+      Is there something that would prevent you from doing physical activity?
+    options:
+      - text: "No, there is no issue here"
+        results:
+          - fact: "Physical activity~"
+      - text: "Yes, I am limited in my movement and prefer a game that does not need this"
+        results:
+          - fact: "Physical activity-"
+
+  - text: >
+      Some games go the extra mile to make it easier to play for people who have trouble discerning colour.
+      Is this something that would convince you to buy a game??
+    options:
+      - text: "Yes, I want my game to take this into account"
+        results:
+          - fact: "Discern Colour+"
+      - text: "No, this is not necessary"
+        results:
+          - fact: "Discern Colour~"
+
+  - text: >
+      Some games have a large verbal or audio component.
+      If you have a severe difficulty in hearing, these types of games might not be for you.
+    options:
+      - text: "No, there is no issue here"
+        results:
+          - fact: "Audio~"
+      - text: "Yes, I have a severe issue that prevents me from hearing most things"
+        results:
+          - fact: "Audio-"
+
+  - text: >
+      Some games have a large verbal or audio component.
+      If you have a severe difficulty in hearing, these types of games might not be for you.
+    options:
+      - text: "No, there is no issue here"
+        results:
+          - fact: "Requires audio~"
+      - text: "Yes, I have a severe issue that prevents me from hearing most things"
+        results:
+          - fact: "Requires audio-"
+
+  - text: >
+      Some games heavily rely on colour to play the game.
+      If you have trouble discerning colours, this game will be impossible to play, unless
+      you customize the board pieces or game elements yourself
+    options:
+      - text: "No, there is no issue here"
+        results:
+          - fact: "Colour required~"
+      - text: "Yes, I have a severe issue that prevents me from playing games that heavily rely on colour"
+        results:
+          - fact: "Colour required-"

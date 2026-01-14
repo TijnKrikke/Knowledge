@@ -17,7 +17,6 @@ class Solver:
         self.reason_unknown = None
         self.cur_goal_aspect = None
         self.cur_sub_goal = None
-        self.x = 0
 
     def get_question(self) -> Question | None:
         if len(self.facts.remaining_games) <= 1:
@@ -35,10 +34,6 @@ class Solver:
 
             if aspects:
                 self.cur_goal_aspect = random.choice(list(aspects))
-
-                if self.x == 0:
-                    self.cur_goal_aspect = Aspect("Visually impaired")
-                    self.x = 1
                 print(f"New goal: {self.cur_goal_aspect}")
             else:
                 print(f"Exhausted all aspects")

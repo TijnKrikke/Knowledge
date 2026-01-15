@@ -140,7 +140,7 @@ questions:
       Explaining these games might take a while and you will not really know what to do straight away.
       Part of the fun is learning what good and bad options are.
     options:
-      - text: "Yes, I love games that challenge my brain"
+      - text: "Yes, I love games that incorporate this idea"
         results:
           - fact: "Many rules+"
       - text: "Neutral"
@@ -169,7 +169,7 @@ questions:
       You have to carefully decide whether this is the moment to act.
       Sometimes it is better not to act, or take a turn of.
     options:
-      - text: "Yes, I like to weight my options"
+      - text: "Yes, I like to weigh my options"
         results:
           - fact: "Opportunities+"
       - text: "Neutral"
@@ -251,6 +251,7 @@ questions:
   - text: >
       Some games ask you to be on the same wave-length as others.
       Either because you already know them very well, or you would like to learn them.
+      Figuring out how someone thinks is required to have fun.
     options:
       - text: "Yes, I like to play a game that incorporates this idea"
         results:
@@ -297,13 +298,13 @@ questions:
     options:
       - text: "Yes, exciting!"
         results:
-          - fact: "Deduction+"
+          - fact: "Social deduction+"
       - text: "Neutral"
         results:
-          - fact: "Deduction~"
+          - fact: "Social deduction~"
       - text: "No, I do not like this"
         results:
-          - fact: "Deduction-"
+          - fact: "Social deduction-"
 
   - text: >
       Some games will introduce new options and rules while you are playing.
@@ -524,7 +525,7 @@ questions:
       - text: "I do not mind if a game has this option"
         results:
           - fact: "Solo playable~"
-      - text: "No, I will never play a game by myself"
+      - text: "No, I want to play a game that requires me to be social"
         results:
           - fact: "Solo playable-"
 
@@ -641,13 +642,13 @@ questions:
     options:
       - text: "Yes, this could be fun. I will maybe share or sell my game later"
         results:
-          - fact: "Memorization+"
+          - fact: "Single play+"
       - text: "Neutral"
         results:
-          - fact: "Memorization~"
+          - fact: "Single play~"
       - text: "No, I want to be able to play it more often"
         results:
-          - fact: "Memorization-"
+          - fact: "Single play-"
 
   - text: >
       There are games that can not be played without having an app installed your phone.
@@ -663,12 +664,12 @@ questions:
   - text: >
       Is there something that would prevent you from doing physical activity?
     options:
-      - text: "No, there is no issue here"
-        results:
-          - fact: "Physical activity~"
       - text: "Yes, I am limited in my movement and prefer a game that does not need this"
         results:
           - fact: "Physical activity-"
+      - text: "No, there is no issue here"
+        results:
+          - fact: "Physical activity~"
 
   - text: >
       Some games go the extra mile to make it easier to play for people who have trouble discerning colour.
@@ -705,3 +706,16 @@ questions:
       - text: "Yes, I have a severe issue that prevents me from playing games that heavily rely on colour"
         results:
           - fact: "Colour required-"
+
+  - text: >
+      Do you like games that try to teach you something?
+    options:
+      - text: "Yes"
+        results:
+          - fact: "Educating+"
+      - text: "Neutral"
+        results:
+          - fact: "Educating~"
+      - text: "No"
+        results:
+          - fact: "Educating-"

@@ -1,11 +1,11 @@
 games:
-  - name: "7 wonders Eurogame"
+  - name: "7 wonders"
     description: ""
-    aspects: ["Dynamic", "Interactive"]
+    aspects: ["Dynamic", "Interactive", "Eurogame"]
 
   - name: "Academy"
     description: ""
-    aspects: ["Deck Builder", "Collector", "Complex", "Personal Touch"]
+    aspects: ["Deck Builder", "Collector", "Complex", "Personal Touch", "Eurogame"]
 
   - name: "Agricola"
     description: ""
@@ -15,9 +15,13 @@ games:
     description: ""
     aspects: ["Eurogame", "Puzzle", "App"]
 
+  - name: "Anti-Virus"
+    description: ""
+    aspects: ["Puzzle", "Solo", "Educational"]
+
   - name: "Ascension"
     description: ""
-    aspects: ["Dynamic", "Deck Builder", "Eurogame"]
+    aspects: ["Dynamic", "Deck Builder", "Eurogame", "Personal Touch"]
 
   - name: "Azul"
     description: ""
@@ -105,7 +109,7 @@ games:
 
   - name: "Dorfromantik"
     description: ""
-    aspects: ["Cozy", "Solo", "Thematic"]
+    aspects: ["Cozy", "Solo", "Thematic", "Collector"]
 
   - name: "Dungeons and Dragons"
     description: ""
@@ -125,7 +129,7 @@ games:
 
   - name: "Escape room games"
     description: ""
-    aspects: ["Puzzle", "Solo"]
+    aspects: ["Puzzle", "Solo", "Educational"]
 
   - name: "Everdell"
     description: ""
@@ -153,11 +157,15 @@ games:
 
   - name: "Grunn / Frysk"
     description: ""
-    aspects: ["Eurogame", "Collector", "Family", "Dynamic", "Thematic", "Interactive"]
+    aspects: ["Eurogame", "Collector", "Family", "Dynamic", "Thematic", "Interactive", "Educational"]
 
   - name: "Hitster"
     description: ""
     aspects: ["Party", "Trivia", "App", "Easy", "Audio"]
+
+  - name: "IQ Fit"
+    description: ""
+    aspects: ["Puzzle", "Solo", "Educational", "Travel"]
 
   - name: "Isle of Cats"
     description: ""
@@ -215,7 +223,7 @@ games:
     description: ""
     aspects: ["Competitive", "Social", "Thematic", "Whimsy", "Promises"]
 
-  - name: "Once Upon a  Time"
+  - name: "Once Upon a Time"
     description: ""
     aspects: ["Cooperative", "Cozy", "Social", "Storytelling", "Thematic", "Easy", "Travel", "Visually impaired"]
 
@@ -313,7 +321,7 @@ games:
 
   - name: "Star Realms"
     description: ""
-    aspects: ["Competitive", "Dynamic", "Deck Builder"]
+    aspects: ["Competitive", "Dynamic", "Deck Builder", "Personal Touch"]
 
   - name: "Stardew Valley: The Board Game"
     description: ""
@@ -349,7 +357,7 @@ games:
 
   - name: "Trivial Pursuit"
     description: ""
-    aspects: ["Family", "Trivia", "Easy", "Visually impaired"]
+    aspects: ["Family", "Trivia", "Easy", "Visually impaired", "Educational"]
 
   - name: "Twister"
     description: ""
@@ -361,7 +369,7 @@ games:
 
   - name: "Unsolved Case Files"
     description: ""
-    aspects: ["Puzzle", "Cooperative", "Solo"]
+    aspects: ["Puzzle", "Cooperative", "Solo", "Educational"]
 
   - name: "Villainous"
     description: ""

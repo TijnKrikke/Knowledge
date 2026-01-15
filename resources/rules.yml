@@ -8,10 +8,10 @@ rules:
     condition:
       and:
         - fact: "Visual appeal+"
-        - fact: "Expensive+"
         - or:
             - fact: "Limited Editions+"
             - fact: "Expansions+"
+            - fact: "Expensive+"
     results:
       - aspect: "Collector+"
 
@@ -24,6 +24,7 @@ rules:
       and:
         - fact: "Attack opponents+"
         - fact: "Elimination+"
+        - fact: "Fun > Winning-"
     results:
       - aspect: "Competitive+"
 
@@ -60,6 +61,7 @@ rules:
       and:
         - fact: "Attack opponents-"
         - fact: "Elimination-"
+        - fact: "Fun > Winning-"
     results:
       - aspect: "Eurogame+"
 
@@ -81,7 +83,7 @@ rules:
       and:
         - fact: "Large groups+"
         - or:
-          - aspect: "Strategic-"
+          - aspect: "Strategy-"
           - fact: "Fun > Winning+"
     results:
       - aspect: "Party+"
@@ -115,12 +117,14 @@ rules:
       They all require you to know the group or learn the group
       you are playing with.
     condition:
-      or:
-        - aspect: "Storytelling+"
-        - aspect: "Vibes+"
-        - aspect: "Trading+"
-        - aspect: "Promises+"
-        - aspect: "Social deduction+"
+      and:
+        - fact: "Solo-"
+        - or:
+          - aspect: "Storytelling+"
+          - aspect: "Vibes+"
+          - aspect: "Trading+"
+          - aspect: "Promises+"
+          - aspect: "Deduction+"
     results:
       - aspect: "Social+"
 
@@ -176,9 +180,9 @@ rules:
       and:
         - fact: "Attack opponents+"
         - fact: "Communication+"
-        - fact: "Deduction+"
+        - fact: "Social deduction+"
     results:
-      - aspect: "Social deduction+"
+      - aspect: "Deduction+"
 
   - description: >
       Dynamic games are about a game state that is constantly changing.
@@ -434,3 +438,11 @@ rules:
         - fact: "Colour required+"
     results:
       - aspect: "Colour+"
+
+  - description: >
+      These games will try to teach you something
+    condition:
+      and:
+        - fact: "Educating+"
+    results:
+      - aspect: "Educational+"

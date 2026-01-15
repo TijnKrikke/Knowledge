@@ -99,6 +99,9 @@ class Solver:
             print(f"Learned new fact: {result}")
             self.facts.add_fact(result)
 
+            if result.name[-1] == "~":
+                self.cur_goal_aspect = None
+
         self.loop_rules()
 
     def loop_rules(self):

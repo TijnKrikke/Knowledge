@@ -624,7 +624,7 @@ questions:
   - text: >
       Do you enjoy having to remember lots of (small) details?
     options:
-      - text: "Yes, I want my game to habe this"
+      - text: "Yes, I want my game to have this"
         results:
           - fact: "Memorization+"
       - text: "Neutral"
@@ -634,6 +634,7 @@ questions:
         results:
           - fact: "Memorization-"
 
+# copy error
   - text: >
       Is it okay if you can play the game only once?
       The game might reveal some big secret as you finish playing it.
@@ -680,16 +681,7 @@ questions:
         results:
           - fact: "Discern Colour~"
 
-  - text: >
-      Some games have a large verbal or audio component.
-      If you have a severe difficulty in hearing, these types of games might not be for you.
-    options:
-      - text: "No, there is no issue here"
-        results:
-          - fact: "Audio~"
-      - text: "Yes, I have a severe issue that prevents me from hearing most things"
-        results:
-          - fact: "Audio-"
+
 
   - text: >
       Some games have a large verbal or audio component.

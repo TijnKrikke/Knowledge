@@ -19,9 +19,6 @@ class Aspect:
 class Game:
     name: str
     description: str
-    age: tuple[int, int]
-    players: tuple[int, int]
-    duration: int
     aspects: set[Aspect]
 
 @dataclass

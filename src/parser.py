@@ -63,9 +63,6 @@ def load_kb(games_path: Optional[str] = None, questions_path: Optional[str] = No
             Game(
                 name=game.get("name"),
                 description=game.get("description"),
-                age=age,
-                players=players,
-                duration=game.get("duration", 0),
                 aspects=aspects,
             )
         )

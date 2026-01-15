@@ -57,8 +57,6 @@ def load_kb(games_path: Optional[str] = None, questions_path: Optional[str] = No
     games = []
     for game in games_data.get("games", []):
         aspects = {Aspect(name=a) for a in game.get("aspects", [])}
-        age = tuple(game.get("age", [0, 0]))
-        players = tuple(game.get("players", [0, 0]))
         games.append(
             Game(
                 name=game.get("name"),

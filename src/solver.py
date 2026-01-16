@@ -2,7 +2,7 @@ from model import Question, Option, Facts, Rule, Aspect, Game, Fact, KB, Truth
 import random
 
 class Solver:
-    def __init__(self, kb: KB):
+    def __init__(self, kb: KB, debug=False):
         self.kb = kb
         self.facts = Facts(
             fact_pos=set(),
@@ -17,6 +17,7 @@ class Solver:
         self.reason_unknown = None
         self.cur_goal_aspect = None
         self.cur_sub_goal = None
+        self.debug = debug
 
     def get_question(self) -> Question | None:
         if len(self.facts.remaining_games) <= 1:
@@ -34,20 +35,20 @@ class Solver:
 
             if aspects:
                 self.cur_goal_aspect = random.choice(list(aspects))
-                print(f"New goal: {self.cur_goal_aspect}")
+                if self.debug:
+                    print(f"New goal: {self.cur_goal_aspect}")
             else:
-                print(f"Exhausted all aspects")
+                if self.debug:
+                    print(f"Exhausted all aspects")
                 return None
 
         return self.find_next_question(self.cur_goal_aspect, set(), set())
 
  
-    def get_aspects_pos(self):
-        aspects = []
-        for fact in self.facts.fact_pos:
-            if type(fact) is Aspect:
-                aspects.append(fact)
-        return aspects
+    def get_aspects(self):
+        aspects_pos = [fact for fact in self.facts.fact_pos if type(fact) is Aspect]
+        aspects_neg = [fact for fact in self.facts.fact_neg if type(fact) is Aspect]
+        return aspects_pos, aspects_neg
 
 
     def find_next_question(self, target_fact: Fact|Aspect, inspected_rules: set[Rule], inspected_questions: set[Question]) -> Question | None:
@@ -69,12 +70,14 @@ class Solver:
                     if new_goal is None:
                         break
 
-                    print(f"New subgoal: {new_goal}")
+                    if self.debug:
+                        print(f"New subgoal: {new_goal}")
 
                     return self.find_next_question(new_goal, inspected_rules, inspected_questions)
 
         # Exhausted all options
-        print(f"Exhausted all questions")
+        if self.debug:
+            print(f"Exhausted all questions")
         return None
 
     def find_goal_from_condition(self, condition: dict) -> Fact | None:
@@ -91,11 +94,13 @@ class Solver:
             append = True
             for req in required:
                 if req not in [a.name for a in game.aspects]:
-                    print(f"> Game {game.name} Missing required aspect: {req}")
+                    if self.debug:
+                        print(f"> Game {game.name} Missing required aspect: {req}")
                     append = False
             for a in game.aspects:
                 if a.name in out:
-                    print(f"> Game {game.name} Has forbidden aspect: {a}")
+                    if self.debug:
+                        print(f"> Game {game.name} Has forbidden aspect: {a}")
                     append = False
                     break
             if append:
@@ -105,7 +110,8 @@ class Solver:
 
     def process_answer(self, option: Option):
         for result in option.results:
-            print(f"Learned new fact: {result}")
+            if self.debug:
+                print(f"Learned new fact: {result}")
             self.facts.add_fact(result)
 
             if result.name[-1] == "~":
@@ -137,7 +143,8 @@ class Solver:
 
                         self.facts.add_fact(result)
                         self.facts.remaining_rules.remove(rule)
-                        print(f"Inferred new fact: {result}")
+                        if self.debug:
+                            print(f"Inferred new fact: {result}")
                         modified = True
                         break
 

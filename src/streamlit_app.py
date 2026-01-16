@@ -22,7 +22,7 @@ with main:
 
 
     if "solver" not in st.session_state:
-        st.session_state.solver = Solver(kb=kb)
+        st.session_state.solver = Solver(kb=kb, debug=True)
 
     matches = st.session_state.solver.get_games_left()
     question = st.session_state.solver.get_question()
@@ -60,11 +60,13 @@ with main:
 
 with panel:
     st.subheader("Aspects Known")
-    aspects = st.session_state.solver.get_aspects_pos()
+    aspects_pos, aspects_neg = st.session_state.solver.get_aspects()
 
-    if not aspects:
+    if not aspects_pos and not aspects_neg:
         st.markdown("This bar will show the known aspects as you answer questions.")
     else:
         st.markdown("Here are some aspects that have been determined so far:")
-        for aspect in aspects:
-            st.markdown(f"- {aspect.name}")
+        for aspect in aspects_pos:
+            st.success(f"- {aspect.name}")
+        for aspect in aspects_neg:
+            st.error(f"- {aspect.name}")

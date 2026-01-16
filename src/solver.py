@@ -41,6 +41,15 @@ class Solver:
 
         return self.find_next_question(self.cur_goal_aspect, set(), set())
 
+ 
+    def get_aspects_pos(self):
+        aspects = []
+        for fact in self.facts.fact_pos:
+            if type(fact) is Aspect:
+                aspects.append(fact)
+        return aspects
+
+
     def find_next_question(self, target_fact: Fact|Aspect, inspected_rules: set[Rule], inspected_questions: set[Question]) -> Question | None:
         self.cur_sub_goal = target_fact
 

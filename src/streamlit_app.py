@@ -51,8 +51,7 @@ with main:
                 fact_idc=st.session_state.solver.facts.fact_idc.copy(),
                 fact_known=st.session_state.solver.facts.fact_known.copy(),
                 remaining_rules=st.session_state.solver.facts.remaining_rules.copy(),
-                remaining_questions=st.session_state.solver.facts.remaining_questions.copy(), 
-                remaining_games=st.session_state.solver.facts.remaining_games.copy(),
+                remaining_games=st.session_state.solver.facts.remaining_games.copy()
             )
             simulated_solver.process_answer(answer)
             nr_games = len(simulated_solver.get_games_left())

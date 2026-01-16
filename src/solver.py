@@ -10,8 +10,7 @@ class Solver:
             fact_idc=set(),
             fact_known=set(),
             remaining_rules=kb.rules.copy(),
-            remaining_questions=kb.questions.copy(),
-            remaining_games=kb.games.copy(),
+            remaining_games=kb.games.copy()
         )
 
         self.reason_unknown = None

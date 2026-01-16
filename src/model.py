@@ -50,7 +50,6 @@ class Facts:
     fact_idc: set[Fact|Aspect]
     fact_known: set[Fact|Aspect]
     remaining_rules: list[Rule]
-    remaining_questions: list[Question]
     remaining_games: list[Game]
 
     def add_fact(self, fact: Fact|Aspect):

@@ -1,396 +1,396 @@
 games:
   - name: "7 wonders"
-    description: "A fast-paced civilization card-drafting game where players develop ancient cities over three ages."
+    description: ""
     aspects: ["Dynamic", "Interactive", "Eurogame"]
 
   - name: "Academy"
-    description: "A strategic card-driven game about building academic prestige through collecting sets and optimizing choices."
+    description: ""
     aspects: ["Deck Builder", "Collector", "Complex", "Personal Touch", "Eurogame"]
 
   - name: "Agricola"
-    description: "A deep worker-placement game about building a thriving farm while managing scarce resources."
+    description: ""
     aspects: ["Eurogame", "Dynamic", "Interactive", "Complex", "Resource", "Strategy"]
 
   - name: "Alchemists(2014)"
-    description: "A logic-heavy deduction game where players experiment to uncover hidden alchemical formulas using an app."
+    description: ""
     aspects: ["Eurogame", "Puzzle", "App"]
 
   - name: "Anti-Virus"
-    description: "A solo puzzle game where players slide pieces to free a virus from the board."
+    description: ""
     aspects: ["Puzzle", "Solo", "Educational"]
 
   - name: "Ascension"
-    description: "A fast deck-building game where players recruit heroes and defeat monsters for victory points."
+    description: ""
     aspects: ["Dynamic", "Deck Builder", "Eurogame", "Personal Touch"]
 
   - name: "Azul"
-    description: "A tactile tile-drafting game about decorating a palace wall while balancing aesthetics and efficiency."
+    description: ""
     aspects: ["Cozy", "Eurogame", "Puzzle", "Dynamic", "Interactive"]
 
   - name: "Beer & Bread"
-    description: "A two-player resource management game focused on balancing production and scoring conditions."
+    description: ""
     aspects: ["Eurogame", "Resource"]
 
   - name: "Beer pong"
-    description: "A physical party game combining aim, coordination, and social drinking."
+    description: ""
     aspects: ["Party", "Mature", "Reaction", "Easy", "Physical"]
 
   - name: "Black Stories"
-    description: "A cooperative riddle game where players solve dark mysteries by asking yes-or-no questions."
+    description: ""
     aspects: ["Party", "Social", "Cooperative", "Vibes", "Mature", "Travel", "Easy", "Visually impaired", "Audio"]
 
   - name: "Blood on the Clock Tower"
-    description: "A complex social deduction game with ongoing player involvement, secrets, and a live storyteller."
+    description: ""
     aspects: ["Party", "Social", "Storytelling", "Deduction", "Asymmetric", "Complex", "Visually impaired"]
 
   - name: "Calico"
-    description: "A cozy tile-laying puzzle game about sewing quilts to attract cats and score points."
+    description: ""
     aspects: ["Cozy", "Eurogame", "Puzzle"]
 
   - name: "Call of Cthulu"
-    description: "A tabletop roleplaying game focused on investigation, horror, and narrative-driven play."
+    description: ""
     aspects: ["Personal Touch", "Social", "Cooperative", "Storytelling", "Thematic", "Mature", "Whimsy", "Visually impaired"]
 
   - name: "Captain Sonar"
-    description: "A real-time team game where crews operate submarines through communication and deduction."
+    description: ""
     aspects: ["Competitive", "Cooperative", "Reaction", "Audio"]
 
   - name: "Cards Against Humanity"
-    description: "An irreverent party game where players create offensive or absurd combinations for laughs."
+    description: ""
     aspects: ["Social", "Vibes", "Party", "Mature", "Easy", "Whimsy"]
 
   - name: "CATAN"
-    description: "A classic resource-trading game about settling an island and negotiating with other players."
+    description: ""
     aspects: ["Family", "Social", "Classic", "Trading", "Resource"]
 
   - name: "Chess"
-    description: "A timeless abstract strategy game of perfect information and deep tactical planning."
+    description: ""
     aspects: ["Competitive", "Classic", "Strategy", "Deterministic"]
 
   - name: "Citadels"
-    description: "A role-selection game where players build cities while bluffing and disrupting opponents."
+    description: ""
     aspects: ["Dynamic", "Risk taking", "Eurogame", "Competitive", "Interactive"]
 
   - name: "Codenames"
-    description: "A word association game where teams deduce secret words using one-word clues."
+    description: ""
     aspects: ["Social", "Vibes", "Cooperative", "Easy"]
 
   - name: "Coup"
-    description: "A fast bluffing game of hidden roles, deception, and sudden elimination."
+    description: ""
     aspects: ["Risk taking", "Competitive", "Bluffing", "Easy", "Travel"]
 
   - name: "Cubirds"
-    description: "A light card game about collecting bird sets by carefully timing when to play cards."
+    description: ""
     aspects: ["Cozy", "Family"]
 
   - name: "Cyclades"
-    description: "A strategic area-control game set in mythological Greece with auction-based actions."
+    description: ""
     aspects: ["Competitive", "Complex", "Strategy"]
 
   - name: "Deep Rock Galactic"
-    description: "A cooperative board game adaptation focused on mining, combat, and teamwork."
+    description: ""
     aspects: ["Cooperative", "Collector", "Dynamic", "Reactive", "Solo"]
 
   - name: "Diplomacy"
-    description: "A negotiation-heavy strategy game where alliances and betrayals determine control of Europe."
+    description: ""
     aspects: ["Competitive", "Social", "Promises", "Strategy"]
 
   - name: "Distilled"
-    description: "A thematic Eurogame about crafting spirits through careful resource management and timing."
+    description: ""
     aspects: ["Eurogame", "Thematic", "Resource"]
 
   - name: "Dixit"
-    description: "A creative storytelling game where abstract illustrations inspire imaginative clues."
+    description: ""
     aspects: ["Social", "Family", "Cozy", "Vibes", "Storytelling", "Easy"]
 
   - name: "Dominion"
-    description: "The classic deck-building game where players build efficient card engines over multiple turns."
+    description: ""
     aspects: ["Personal Touch", "Dynamic", "Eurogame", "Deck Builder", "Classic"]
 
   - name: "Dorfromantik"
-    description: "A relaxing cooperative tile-laying game inspired by peaceful landscape building."
+    description: ""
     aspects: ["Cozy", "Solo", "Thematic", "Collector"]
 
   - name: "Dungeons and Dragons"
-    description: "A foundational tabletop roleplaying game centered on collaborative storytelling and adventure."
+    description: ""
     aspects: ["Personal Touch", "Social", "Cooperative", "Classic", "Storytelling", "Resource", "Visually impaired"]
 
   - name: "Echo"
-    description: "A light competitive card game focused on collecting matching sets."
+    description: ""
     aspects: ["Competitive", "Collector", "Travel", "Easy"]
 
   - name: "El Grande"
-    description: "A classic area-majority strategy game set in medieval Spain."
+    description: ""
     aspects: ["Competitive", "Strategy", "Complex"]
 
   - name: "Eldritch Horror"
-    description: "A globe-spanning cooperative game where players battle cosmic horrors and looming doom."
+    description: ""
     aspects: ["Cooperative", "Dynamic", "Reactive", "Thematic", "Mature", "Complex"]
 
   - name: "Escape room games"
-    description: "Puzzle-based games that simulate escape room challenges through clues and deduction."
+    description: ""
     aspects: ["Puzzle", "Solo", "Educational"]
 
   - name: "Everdell"
-    description: "A visually rich worker-placement game about building a woodland city."
+    description: ""
     aspects: ["Eurogame", "Thematic", "Resource", "Strategy"]
 
   - name: "Exploding Kittens"
-    description: "A humorous card game of luck and timing where players avoid explosive cards."
+    description: ""
     aspects: ["Party", "Collector", "Competitive", "Whimsy", "Easy", "Luck"]
 
   - name: "Flamecraft"
-    description: "A charming Eurogame where players manage shops run by adorable artisan dragons."
+    description: ""
     aspects: ["Cozy", "Eurogame", "Thematic", "Resource"]
 
   - name: "Galaxy Trucker"
-    description: "A chaotic real-time game about building spaceships and surviving unpredictable space hazards."
+    description: ""
     aspects: ["Risk taking", "Whimsy", "Reaction"]
 
   - name: "Gloomhaven"
-    description: "A massive cooperative campaign game blending tactical combat with long-term progression."
+    description: ""
     aspects: ["Cooperative", "Complex", "Strategy"]
 
   - name: "Go"
-    description: "An ancient abstract strategy game emphasizing territory control and elegant simplicity."
+    description: ""
     aspects: ["Competitive", "Classic", "Strategy", "Easy", "Deterministic"]
 
   - name: "Grunn / Frysk"
-    description: "A regional-themed Eurogame focused on collection, interaction, and educational elements."
+    description: ""
     aspects: ["Eurogame", "Collector", "Family", "Dynamic", "Thematic", "Interactive", "Educational"]
 
   - name: "Hitster"
-    description: "A music trivia party game where players place songs on a chronological timeline."
+    description: ""
     aspects: ["Party", "Trivia", "App", "Easy", "Audio"]
 
   - name: "IQ Fit"
-    description: "A solo logic puzzle where players fit colorful pieces into a compact grid."
+    description: ""
     aspects: ["Puzzle", "Solo", "Educational", "Travel"]
 
   - name: "Isle of Cats"
-    description: "A tile-placement game about rescuing cats and fitting them neatly onto a boat."
+    description: ""
     aspects: ["Eurogame", "Puzzle", "Thematic"]
 
   - name: "Istanbul"
-    description: "A strategic movement and resource game set in a bustling market city."
+    description: ""
     aspects: ["Eurogame", "Resource", "Complex"]
 
   - name: "Jenga"
-    description: "A physical dexterity game where players remove blocks without collapsing the tower."
+    description: ""
     aspects: ["Risk taking", "Family", "Physical", "Easy"]
 
   - name: "Keezen"
-    description: "A family-friendly race game combining cards and pawn movement."
+    description: ""
     aspects: ["Family", "Competitive"]
 
   - name: "King of Tokyo"
-    description: "A dice-driven game where giant monsters battle for dominance of Tokyo."
+    description: ""
     aspects: ["Risk taking", "Whimsy"]
 
   - name: "Kitchen Rush"
-    description: "A real-time cooperative game simulating the chaos of running a restaurant."
+    description: ""
     aspects: ["Cooperative", "Reaction"]
 
   - name: "Love Letter"
-    description: "A compact deduction game about delivering a letter while outmaneuvering rivals."
+    description: ""
     aspects: ["Competitive", "Travel", "Easy"]
 
   - name: "Ludo"
-    description: "A classic roll-and-move family game focused on luck and simple strategy."
+    description: ""
     aspects: ["Family", "Classic", "Easy", "Luck"]
 
   - name: "Magic the Gathering"
-    description: "A deep collectible card game centered on customizable decks and strategic play."
+    description: ""
     aspects: ["Personal Touch", "Collector", "Competitive", "Travel", "Complex"]
 
   - name: "Mahé"
-    description: "A lighthearted dice game emphasizing luck and playful competition."
+    description: ""
     aspects: ["Party", "Family", "Whimsy", "Easy", "Luck"]
 
   - name: "Memory"
-    description: "A classic matching game that tests recall and concentration."
+    description: ""
     aspects: ["Family", "Puzzle", "Easy"]
 
   - name: "Metropolis"
-    description: "A compact city-building card game focused on quick decisions."
+    description: ""
     aspects: ["Eurogame", "Travel", "Easy"]
 
   - name: "Monopoly"
-    description: "A classic property-trading game centered on negotiation and financial luck."
+    description: ""
     aspects: ["Family", "Social", "Classic", "Luck", "Trading"]
 
   - name: "Munchkin"
-    description: "A humorous dungeon-crawling card game full of betrayal and parody."
+    description: ""
     aspects: ["Competitive", "Social", "Thematic", "Whimsy", "Promises"]
 
   - name: "Once Upon a Time"
-    description: "A collaborative storytelling card game where players build fairy tales together."
+    description: ""
     aspects: ["Cooperative", "Cozy", "Social", "Storytelling", "Thematic", "Easy", "Travel", "Visually impaired"]
 
   - name: "One Night Ultimate Werewolf"
-    description: "A fast social deduction game with hidden roles and no player elimination."
+    description: ""
     aspects: ["Social", "Puzzle", "Deduction", "Whimsy", "Complex"]
 
   - name: "Pandemic"
-    description: "A cooperative strategy game where players race to stop global disease outbreaks."
+    description: ""
     aspects: ["Cooperative", "Dynamic", "Reactive"]
 
   - name: "Parasocial"
-    description: "A thematic strategy game focused on resource collection and player interaction."
+    description: ""
     aspects: ["Dynamic", "Collector", "Thematic", "Resource", "Interactive"]
 
   - name: "Pick-o-mino [Regenwormen]"
-    description: "A light push-your-luck dice game about collecting worms."
+    description: ""
     aspects: ["Family", "Risk taking", "Travel", "Easy"]
 
   - name: "Poetry for Neanderthals"
-    description: "A party game where players explain words using only single-syllable clues."
+    description: ""
     aspects: ["Party", "Whimsy", "Easy", "Visually impaired", "Audio"]
 
   - name: "Poker"
-    description: "A classic card game of probability, bluffing, and betting."
+    description: ""
     aspects: ["Risk taking", "Bluffing", "Classic"]
 
   - name: "Power Grid"
-    description: "An economic strategy game about managing power networks and resources."
+    description: ""
     aspects: ["Eurogame", "Strategy"]
 
   - name: "Quacks"
-    description: "A push-your-luck bag-building game about brewing unstable potions."
+    description: ""
     aspects: ["Dynamic", "Risk taking", "Deck Builder", "Whimsy", "Personal Touch"]
 
   - name: "Race for the Galaxy"
-    description: "A complex tableau-building game about developing a space empire."
+    description: ""
     aspects: ["Eurogame", "Dynamic", "Interactive", "Complex", "Strategy"]
 
   - name: "Ransom Notes"
-    description: "A creative party game where players build absurd answers from word magnets."
+    description: ""
     aspects: ["Party", "Social", "Vibes", "Whimsy", "Easy"]
 
   - name: "Risk"
-    description: "A global domination game focused on conquest, alliances, and strategy."
+    description: ""
     aspects: ["Family", "Competitive", "Risk taking", "Strategy", "Classic", "Asymmetric", "Colour"]
 
   - name: "Rite"
-    description: "A complex competitive game emphasizing collection and player-driven progression."
+    description: ""
     aspects: ["Collector", "Competitive", "Complex", "Personal Touch"]
 
   - name: "Root"
-    description: "An asymmetric strategy game where factions with unique mechanics battle for control."
+    description: ""
     aspects: ["Competitive", "Asymmetric", "Thematic"]
 
   - name: "Scout"
-    description: "A quick card game about managing hand order and taking calculated risks."
+    description: ""
     aspects: ["Risk taking", "Travel", "Easy"]
 
   - name: "Secret Hitler"
-    description: "A social deduction game centered on hidden roles and political deception."
+    description: ""
     aspects: ["Social", "Mature", "Deduction", "Asymmetric"]
 
   - name: "SET"
-    description: "A fast pattern-recognition game based on visual logic."
+    description: ""
     aspects: ["Family", "Reaction", "Easy", "Travel", "Colour"]
 
   - name: "Shadowrun"
-    description: "A cyberpunk-fantasy roleplaying game focused on narrative and tactical choices."
+    description: ""
     aspects: ["Personal Touch", "Social", "Risk taking", "Cooperative", "Storytelling", "Thematic", "Mature", "Complex", "Visually impaired"]
 
   - name: "Sheriff of Nottingham"
-    description: "A bluffing and negotiation game about smuggling goods past the sheriff."
+    description: ""
     aspects: ["Risk taking", "Social", "Bluffing", "Trading", "Promises"]
 
   - name: "Skull"
-    description: "A minimalist bluffing game based on reading opponents."
+    description: ""
     aspects: ["Risk taking", "Bluffing", "Easy", "Travel"]
 
   - name: "Slay the Spire"
-    description: "A cooperative deck-building game inspired by the video game roguelike."
+    description: ""
     aspects: ["Dynamic", "Cooperative", "Collector", "Deck Builder", "Personal Touch", "Thematic"]
 
   - name: "Small world"
-    description: "A territory-control game with fantasy races that rise and fall over time."
+    description: ""
     aspects: ["Dynamic", "Eurogame", "Competitive", "Interactive"]
 
   - name: "Snakes and Ladders"
-    description: "A simple roll-and-move game driven entirely by luck."
+    description: ""
     aspects: ["Family", "Classic", "Luck", "Easy"]
 
   - name: "Splendor"
-    description: "A streamlined engine-building game about acquiring gems and prestige."
+    description: ""
     aspects: ["Eurogame", "Dynamic", "Strategy", "Interactive", "Resource", "Easy", "Colour"]
 
   - name: "Star Realms"
-    description: "A head-to-head deck-building game focused on combat and synergy."
+    description: ""
     aspects: ["Competitive", "Dynamic", "Deck Builder", "Personal Touch"]
 
   - name: "Stardew Valley: The Board Game"
-    description: "A cooperative farming adventure based on the beloved video game."
+    description: ""
     aspects: ["Cooperative", "Cozy", "Collector", "Resource", "Thematic"]
 
   - name: "Stratego"
-    description: "A classic strategy game of hidden information and battlefield tactics."
+    description: ""
     aspects: ["Competitive", "Risk taking", "Classic"]
 
   - name: "Sushi Go"
-    description: "A fast card-drafting game about collecting sushi combinations."
+    description: ""
     aspects: ["Family", "Dynamic", "Interactive", "Easy", "Travel"]
 
   - name: "Terraforming Mars"
-    description: "A deep engine-building game about transforming Mars into a habitable planet."
+    description: ""
     aspects: ["Dynamic", "Personal Touch", "Eurogame", "Complex", "Strategy", "Solo", "Resource", "Interactive"]
 
   - name: "The Mind"
-    description: "A cooperative game where players silently synchronize card play."
+    description: ""
     aspects: ["Party", "Social", "Vibes", "Cooperative", "Easy", "Travel"]
 
   - name: "The Resistance"
-    description: "A streamlined social deduction game about secret missions and betrayal."
+    description: ""
     aspects: ["Social", "Deduction", "Easy"]
 
   - name: "The Werewolves of Millers Hollow"
-    description: "A classic social deduction party game with hidden roles and elimination."
+    description: ""
     aspects: ["Party", "Social", "Competitive", "Classic", "Deduction", "Asymmetric"]
 
   - name: "Ticket to Ride"
-    description: "A family-friendly strategy game about building railway routes."
+    description: ""
     aspects: ["Dynamic", "Family", "Eurogame", "Classic", "Interactive", "Strategy"]
 
   - name: "Trivial Pursuit"
-    description: "A trivia game testing knowledge across a wide range of categories."
+    description: ""
     aspects: ["Family", "Trivia", "Easy", "Visually impaired", "Educational"]
 
   - name: "Twister"
-    description: "A physical party game that challenges balance and flexibility."
+    description: ""
     aspects: ["Dynamic", "Family", "Physical", "Classic", "Reaction", "Interactive", "Easy"]
 
   - name: "Uno"
-    description: "A classic shedding card game driven by luck and action cards."
+    description: ""
     aspects: ["Party", "Competitive", "Travel", "Classic", "Easy", "Luck"]
 
   - name: "Unsolved Case Files"
-    description: "A cooperative mystery game where players solve cold cases using evidence."
+    description: ""
     aspects: ["Puzzle", "Cooperative", "Solo", "Educational"]
 
   - name: "Villainous"
-    description: "An asymmetric strategy game where each player embodies a Disney villain."
+    description: ""
     aspects: ["Competitive", "Collector", "Thematic", "Asymmetric", "Personal Touch"]
 
   - name: "Warhammer"
-    description: "A miniature wargame emphasizing tactics, collection, and thematic battles."
+    description: ""
     aspects: ["Personal Touch", "Collector", "Competitive", "Complex", "Thematic", "Strategy"]
 
   - name: "Wavelength"
-    description: "A party game about guessing where clues fall on a conceptual spectrum."
+    description: ""
     aspects: ["Social", "Vibes", "Cooperative", "Party", "Easy"]
 
   - name: "Welcome to the Dungeon"
-    description: "A push-your-luck bluffing game about tempting fate in a dungeon crawl."
+    description: ""
     aspects: ["Risk taking", "Easy"]
 
   - name: "White Stories"
-    description: "A lighter mystery riddle game solved through cooperative questioning."
+    description: ""
     aspects: ["Social", "Cooperative", "Vibes", "Travel", "Easy", "Visually impaired", "Audio"]
 
   - name: "Wingspan"
-    description: "An engine-building game about attracting birds to nature preserves."
+    description: ""
     aspects: ["Eurogame", "Collector", "Thematic"]
